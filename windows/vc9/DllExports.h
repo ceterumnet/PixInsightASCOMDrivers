@@ -7,14 +7,14 @@
 #define IMPEXP __declspec(dllimport)
 #endif 	// __dll__
 
-#include "TestDriver.h"
+#include "PixInsightASCOMDriver.h"
 #include <IPixInsightCamera.h>
 
 //typedef IPixInsightCamera* IPixInsightCameraPtr;
 
 extern "C"
 
-IMPEXP pcl::TestDriver* InitializeCamera(void);
+IMPEXP pcl::PixInsightASCOMDriver* InitializeCamera(void);
 
 
 #endif	// DLLEXPORTS_H

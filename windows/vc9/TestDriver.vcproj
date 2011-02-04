@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="TestDriver"
+	Name="PixInsightASCOMDriver"
 	ProjectGUID="{1E7F3743-070F-4407-928E-2A4A7664F5BE}"
 	RootNamespace="PCL"
 	Keyword="Win32Proj"
@@ -371,7 +371,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\TestDriver.cpp"
+				RelativePath=".\PixInsightASCOMDriver.cpp"
 				>
 			</File>
 		</Filter>
@@ -385,7 +385,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\TestDriver.h"
+				RelativePath=".\PixInsightASCOMDriver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.h"
 				>
 			</File>
 		</Filter>

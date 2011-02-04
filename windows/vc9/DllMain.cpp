@@ -6,7 +6,7 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void*)
         return 1;
 }
 
-IMPEXP pcl::TestDriver* InitializeCamera()
+IMPEXP pcl::PixInsightASCOMDriver* InitializeCamera()
 {
-	return new pcl::TestDriver;
+	return new pcl::PixInsightASCOMDriver;
 }
