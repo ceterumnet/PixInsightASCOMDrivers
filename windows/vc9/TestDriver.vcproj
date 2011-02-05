@@ -247,7 +247,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="PCL-pxi.lib"
-				OutputFile="$(PCLBINDIR32)\TestDriver-pxi.dll"
+				OutputFile="$(PCLBINDIR64)\TestDriver-pxi.dll"
 				AdditionalLibraryDirectories="$(PCLLIBDIR32)"
 				ModuleDefinitionFile="TestDriver.def"
 				GenerateDebugInformation="true"
