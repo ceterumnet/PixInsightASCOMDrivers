@@ -134,160 +134,268 @@ namespace pcl
 
 	int PixInsightASCOMDriver::DisconnectCamera()
 	{
+		if(theCameraPtr->Connected) {
+			theCameraPtr->Connected = false;
+			return 1;
+		}			
 		return 0;
 	}
 
 	int PixInsightASCOMDriver::SetConnected(bool connectCamera)
 	{
-		if(connectCamera == true && isConnected == false)
+		if(connectCamera == true && theCameraPtr->Connected == false)
 		{
 			return PixInsightASCOMDriver::ConnectCamera();
 		}
-		else if(connectCamera == true && isConnected == true)
+		else if(connectCamera == true && theCameraPtr->Connected == VARIANT_TRUE)
 		{
 			return 1;
 		}
-		else if(connectCamera == false && isConnected == true)
+		else if(connectCamera == false && theCameraPtr->Connected == VARIANT_TRUE)
 		{
 			return PixInsightASCOMDriver::DisconnectCamera();
 		}
 		else
 		{
-			return 1;
+			return 0;
 		}
 	}
 
 	bool PixInsightASCOMDriver::CoolerOn()
 	{
-		return false;
+		ASCOM_WRAP_BOOL(CoolerOn);
 	}
 	int PixInsightASCOMDriver::SetCoolerOn(bool coolerOn)
 	{
+		if(theCameraPtr->Connected && coolerOn)
+		{
+			theCameraPtr->CoolerOn = VARIANT_TRUE;
+			return 1;
+		}
+		else if(theCameraPtr->Connected && !coolerOn)
+		{
+			theCameraPtr->CoolerOn = VARIANT_FALSE;
+			return 1;
+		}
 		return 0;
 	}
 	double PixInsightASCOMDriver::CoolerPower()
 	{
-		return 0;
+		ASCOM_WRAP(CoolerPower);
 	}
 	String PixInsightASCOMDriver::Description()
 	{
 		return String("ASCOM Driver");
 	}
+
 	double PixInsightASCOMDriver::ElectronsPerADU()
 	{
-		return 0;
+		ASCOM_WRAP(ElectronsPerADU);
 	}
+
 	double PixInsightASCOMDriver::FullWellCapacity()
 	{
-		return 0;
+		ASCOM_WRAP(FullWellCapacity);
 	}
+
 	bool PixInsightASCOMDriver::HasShutter()
 	{
-		return false;
+		ASCOM_WRAP_BOOL(HasShutter);
 	}
+
 	double PixInsightASCOMDriver::HeatSinkTemperature()
 	{
-		return 0;
+		ASCOM_WRAP(HeatSinkTemperature);
 	}
 	
-	Array< Array<long> > PixInsightASCOMDriver::ImageArray()
+	UInt32Image PixInsightASCOMDriver::ImageArray()
 	{
-		return Array< Array<long> >();
+		while(!theCameraPtr->ImageReady)
+		{
+			Sleep(1000);
+		}
+		
+		UInt32Image theImageData;
+		theImageData.AllocateData(theCameraPtr->NumX, theCameraPtr->NumY);
+		CComSafeArray< long > safeArr;
+		safeArr.Attach(theCameraPtr->ImageArray.parray);
+		long idx[2];
+		long val;
+		for(int rowIdx = 0;rowIdx < theCameraPtr->NumY; rowIdx++)
+		{
+			UInt32Image::sample* v = theImageData.ScanLine(rowIdx);
+
+			for(int colIdx = 0;colIdx < theCameraPtr->NumX; colIdx++)
+			{
+				idx[0] = colIdx;
+				idx[1] = rowIdx;
+				safeArr.MultiDimGetAt(idx, val);
+				UInt32PixelTraits::FromSample((pcl::int16&)val, v[colIdx]);
+			}
+		}
+		safeArr.Detach();
+		return theImageData;
 	}
-	//Array< Array<long> > PixInsightASCOMDriver::ImageArrayVariant() = 0;
+	
 	bool PixInsightASCOMDriver::ImageReady()
 	{
-		return false;
+		ASCOM_WRAP_BOOL(ImageReady);
 	}
+
 	bool PixInsightASCOMDriver::IsPulseGuiding()
 	{
-		return false;
+		ASCOM_WRAP_BOOL(IsPulseGuiding);
 	}
+
 	String PixInsightASCOMDriver::LastError()
 	{
+		if(theCameraPtr->Connected)
+		{
+			return String((wchar_t *)theCameraPtr->LastError);
+		}
 		return String("");
 	}
 	double PixInsightASCOMDriver::LastExposureDuration()
 	{
-		return 0;
+		ASCOM_WRAP(LastExposureDuration);
 	}
 	// Reports the actual exposure start in the FITS-standard CCYY-MM-DDThh:mm:ss[.sss...] format.
 	String PixInsightASCOMDriver::LastExposureStartTime()
 	{
+		if(theCameraPtr->Connected)
+		{
+			return String((wchar_t *)theCameraPtr->LastExposureStartTime);
+		}
 		return String("");
 	}
 	long PixInsightASCOMDriver::MaxADU()
 	{
-		return 0;
+		ASCOM_WRAP(MaxADU);
 	}
 	short PixInsightASCOMDriver::MaxBinX()
 	{
-		return 0;
+		ASCOM_WRAP(MaxBinX);
 	}
 	short PixInsightASCOMDriver::MaxBinY()
 	{
-		return 0;
+		ASCOM_WRAP(MaxBinY);
 	}
 	long PixInsightASCOMDriver::NumX()
 	{
-		return 0;
+		ASCOM_WRAP(NumX);
 	}
 	long PixInsightASCOMDriver::NumY()
 	{
+		ASCOM_WRAP(NumY);
+	}
+	int PixInsightASCOMDriver::SetNumX(long numX)
+	{
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->NumX = numX;
+			return 1;
+		}
 		return 0;
 	}
-	int PixInsightASCOMDriver::SetNumX(long)
+	int PixInsightASCOMDriver::SetNumY(long numY)
 	{
-		return 0;
-	}
-	int PixInsightASCOMDriver::SetNumY(long)
-	{
-		return 0;
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->NumY = numY;
+			return 1;
+		}
+		return 0;	
 	}
 	double PixInsightASCOMDriver::PixelSizeX()
 	{
-		return 0;
+		ASCOM_WRAP(PixelSizeX);
 	}
 	double PixInsightASCOMDriver::PixelSizeY()
 	{
-		return 0;
+		ASCOM_WRAP(PixelSizeY);
 	}
-	double PixInsightASCOMDriver::SetCCDTemperature()
+
+	int PixInsightASCOMDriver::SetCCDTemperature(double ccdTemp)
 	{
-		return 0;
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->SetCCDTemperature = ccdTemp;
+			return 1;
+		}
+		return 0;	
 	}
+
+	double PixInsightASCOMDriver::GetSetCCDTemperature()
+	{
+		ASCOM_WRAP(SetCCDTemperature);
+	}
+
 	double PixInsightASCOMDriver::StartX()
 	{
-		return 0;
+		ASCOM_WRAP(StartX);
 	}
 	int PixInsightASCOMDriver::SetStartX(double setX)
 	{
-		return 0;
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->StartX = setX;
+			return 1;
+		}
+		return 0;	
 	}
 	double PixInsightASCOMDriver::StartY()
 	{
-		return 0;
+		ASCOM_WRAP(StartY);
 	}
 	int PixInsightASCOMDriver::SetStartY(double setY)
 	{
-		return 0;
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->StartY = setY;
+			return 1;
+		}
+		return 0;	
 	}
 	int PixInsightASCOMDriver::AbortExposure()
 	{
+		if(theCameraPtr->Connected)
+		{
+			theCameraPtr->AbortExposure();
+			return 1;
+		}
 		return 0;
 	}
-	int PixInsightASCOMDriver::PulseGuide(IPixInsightCamera::GuideDirection direction)
+	int PixInsightASCOMDriver::PulseGuide(IPixInsightCamera::GuideDirection direction, long duration)
 	{
-		return 0;
+		if(theCameraPtr->Connected)
+		{
+			switch(direction) {
+				case GuideNorth:
+					return theCameraPtr->PulseGuide(guideNorth, duration);
+				case GuideSouth:
+					return theCameraPtr->PulseGuide(guideSouth, duration);
+				case GuideEast:
+					return theCameraPtr->PulseGuide(guideEast, duration);
+				case GuideWest:
+					return theCameraPtr->PulseGuide(guideWest, duration);
+			}
+		}
+		return 0;	
 	}
 	void PixInsightASCOMDriver::SetupDialog()
 	{
+		if(theCameraPtr->Connected)
+			theCameraPtr->SetupDialog();
 	}
-	void PixInsightASCOMDriver::StartExposure()
+	void PixInsightASCOMDriver::StartExposure(double duration)
 	{
+		if(theCameraPtr->Connected)
+			theCameraPtr->StartExposure(duration, VARIANT_TRUE);
 	}
 	void PixInsightASCOMDriver::StopExposure()
 	{
+		if(theCameraPtr->Connected)
+			theCameraPtr->StopExposure();
 	}
 
 

@@ -1,5 +1,6 @@
 #include <IPixInsightCamera.h>
 #include "stdafx.h"
+#include <atlsafe.h>
 #pragma once
 
 #import "file:c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
@@ -51,7 +52,7 @@ namespace pcl
 	    virtual bool HasShutter();
 	    virtual double HeatSinkTemperature();
 		
-	    virtual Array< Array<long> > ImageArray();
+	    virtual UInt32Image ImageArray();
 	    //virtual Array< Array<long> > ImageArrayVariant();
 	    virtual bool ImageReady();
 	    virtual bool IsPulseGuiding();
@@ -68,21 +69,22 @@ namespace pcl
         virtual int SetNumY(long);
         virtual double PixelSizeX();
         virtual double PixelSizeY();
-        virtual double SetCCDTemperature();
+        virtual int SetCCDTemperature(double);
         virtual double StartX();
         virtual int SetStartX(double);
         virtual double StartY();
         virtual int SetStartY(double);
         virtual int AbortExposure();
-        virtual int PulseGuide(GuideDirection);
+        virtual int PulseGuide(GuideDirection, long);
         virtual void SetupDialog();
-        virtual void StartExposure();
+        virtual void StartExposure(double);
         virtual void StopExposure();
+		virtual double GetSetCCDTemperature();
 	private:
-		bool isConnected;
 		int ConnectCamera();
 		int DisconnectCamera();
 		ICameraPtr theCameraPtr;
+		
 	};
 
 }
