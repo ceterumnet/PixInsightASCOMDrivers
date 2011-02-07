@@ -27,6 +27,7 @@ namespace pcl
 	{
 	public:
 		PixInsightASCOMDriver();
+		virtual void SetLogger(void(*)(String));
 		virtual short BinX();
 	    virtual short BinY();
 	    virtual int SetBinX(short);
@@ -52,7 +53,7 @@ namespace pcl
 	    virtual bool HasShutter();
 	    virtual double HeatSinkTemperature();
 		
-	    virtual UInt32Image ImageArray();
+		virtual void ImageArray(UInt16Image *theImage);
 	    //virtual Array< Array<long> > ImageArrayVariant();
 	    virtual bool ImageReady();
 	    virtual bool IsPulseGuiding();
@@ -81,9 +82,11 @@ namespace pcl
         virtual void StopExposure();
 		virtual double GetSetCCDTemperature();
 	private:
+		void (*theLogger)(String);
 		int ConnectCamera();
 		int DisconnectCamera();
 		ICameraPtr theCameraPtr;
+		uint16 ASCOMDataToPi( long );
 		
 	};
 

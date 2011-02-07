@@ -17,8 +17,14 @@ namespace pcl
 	PixInsightASCOMDriver::PixInsightASCOMDriver()
 	{
 		theCameraPtr = NULL;
+		
 	}
 
+	void PixInsightASCOMDriver::SetLogger(void(*_theLogger)(String))
+	{
+		theLogger = _theLogger;
+		theLogger(String("The Logger has been successfully set."));
+	}
 	short PixInsightASCOMDriver::BinX()
 	{
 		ASCOM_WRAP(BinX);
@@ -112,8 +118,8 @@ namespace pcl
 	int PixInsightASCOMDriver::ConnectCamera()
 	{
 		CoInitialize(NULL);
-
 		_ChooserPtr C = NULL;
+		
 		C.CreateInstance("DriverHelper.Chooser");
 		C->DeviceTypeV = "Camera";
 		_bstr_t  drvrId = C->Choose("");
@@ -143,22 +149,16 @@ namespace pcl
 
 	int PixInsightASCOMDriver::SetConnected(bool connectCamera)
 	{
-		if(connectCamera == true && theCameraPtr->Connected == false)
-		{
+		if(connectCamera == true && theCameraPtr == NULL)
 			return PixInsightASCOMDriver::ConnectCamera();
-		}
+		if(connectCamera == true && theCameraPtr->Connected == false)
+			return PixInsightASCOMDriver::ConnectCamera();
 		else if(connectCamera == true && theCameraPtr->Connected == VARIANT_TRUE)
-		{
 			return 1;
-		}
 		else if(connectCamera == false && theCameraPtr->Connected == VARIANT_TRUE)
-		{
 			return PixInsightASCOMDriver::DisconnectCamera();
-		}
 		else
-		{
 			return 0;
-		}
 	}
 
 	bool PixInsightASCOMDriver::CoolerOn()
@@ -207,35 +207,63 @@ namespace pcl
 	{
 		ASCOM_WRAP(HeatSinkTemperature);
 	}
-	
-	UInt32Image PixInsightASCOMDriver::ImageArray()
+	uint16 PixInsightASCOMDriver::ASCOMDataToPi( long _i )
 	{
-		while(!theCameraPtr->ImageReady)
-		{
-			Sleep(1000);
-		}
-		
-		UInt32Image theImageData;
-		theImageData.AllocateData(theCameraPtr->NumX, theCameraPtr->NumY);
-		CComSafeArray< long > safeArr;
-		safeArr.Attach(theCameraPtr->ImageArray.parray);
-		long idx[2];
-		long val;
-		for(int rowIdx = 0;rowIdx < theCameraPtr->NumY; rowIdx++)
-		{
-			UInt32Image::sample* v = theImageData.ScanLine(rowIdx);
-
-			for(int colIdx = 0;colIdx < theCameraPtr->NumX; colIdx++)
-			{
-				idx[0] = colIdx;
-				idx[1] = rowIdx;
-				safeArr.MultiDimGetAt(idx, val);
-				UInt32PixelTraits::FromSample((pcl::int16&)val, v[colIdx]);
-			}
-		}
-		safeArr.Detach();
-		return theImageData;
+		return _i + 32768;
 	}
+
+	//Application needs to own this memory...
+	//This may need to be a pointer instead...
+	void PixInsightASCOMDriver::ImageArray(UInt16Image *theImage)
+	{
+		long *imageData;
+		SafeArrayAccessData(theCameraPtr->ImageArray.parray, (void **)&imageData);
+		int dims = SafeArrayGetDim(theCameraPtr->ImageArray.parray);
+		long ubound1, ubound2, lbound1, lbound2;
+		SafeArrayGetUBound(theCameraPtr->ImageArray.parray,1,&ubound1);
+		SafeArrayGetUBound(theCameraPtr->ImageArray.parray,2,&ubound2);
+		SafeArrayGetLBound(theCameraPtr->ImageArray.parray,1,&lbound1);
+		SafeArrayGetLBound(theCameraPtr->ImageArray.parray,2,&lbound2);
+
+		int sizeX = ubound1 - lbound1;
+		int sizeY = ubound2 - lbound2;	
+		
+		uint16 *piImageData = **theImage;
+
+		for( size_type i = 0, N = theImage->NumberOfPixels(); i < N; ++i)
+			*piImageData++ = ASCOMDataToPi( *imageData++ );
+
+		SafeArrayUnaccessData( theCameraPtr->ImageArray.parray );
+	}
+		
+	//UInt32Image PixInsightASCOMDriver::ImageArray()
+	//{
+	//	while(!theCameraPtr->ImageReady)
+	//	{
+	//		Sleep(1000);
+	//	}
+	//	
+	//	UInt32Image theImageData;
+	//	theImageData.AllocateData(theCameraPtr->NumX, theCameraPtr->NumY);
+	//	CComSafeArray< long > safeArr;
+	//	safeArr.Attach(theCameraPtr->ImageArray.parray);
+	//	long idx[2];
+	//	long val;
+	//	for(int rowIdx = 0;rowIdx < theCameraPtr->NumY; rowIdx++)
+	//	{
+	//		UInt32Image::sample* v = theImageData.ScanLine(rowIdx);
+
+	//		for(int colIdx = 0;colIdx < theCameraPtr->NumX; colIdx++)
+	//		{
+	//			idx[0] = colIdx;
+	//			idx[1] = rowIdx;
+	//			safeArr.MultiDimGetAt(idx, val);
+	//			UInt32PixelTraits::FromSample((pcl::int16&)val, v[colIdx]);
+	//		}
+	//	}
+	//	safeArr.Detach();
+	//	return theImageData;
+	//}
 	
 	bool PixInsightASCOMDriver::ImageReady()
 	{
