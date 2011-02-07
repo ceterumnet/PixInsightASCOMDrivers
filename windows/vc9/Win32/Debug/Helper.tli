@@ -1,0 +1,415 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (0a9a433c).
+//
+// c:\testdriver\windows\vc9\win32\debug\Helper.tli
+//
+// Wrapper implementations for Win32 type library DriverHelper.Chooser
+// compiler-generated file created 02/05/11 at 17:57:10 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface _Chooser wrapper method implementations
+//
+
+inline _bstr_t _Chooser::GetDeviceType ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DeviceType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _Chooser::PutDeviceType ( BSTR * _arg1 ) {
+    HRESULT _hr = put_DeviceType(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _Chooser::Choose ( _bstr_t CurrentDriverID ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_Choose(CurrentDriverID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Chooser::GetDeviceTypeV ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DeviceTypeV(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _Chooser::PutDeviceTypeV ( _bstr_t _arg1 ) {
+    HRESULT _hr = put_DeviceTypeV(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface _Profile wrapper method implementations
+//
+
+inline _bstr_t _Profile::GetDeviceType ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DeviceType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _Profile::PutDeviceType ( BSTR * _arg1 ) {
+    HRESULT _hr = put_DeviceType(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _Profile::IsRegistered ( _bstr_t DriverID ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_IsRegistered(DriverID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _Profile::Register ( _bstr_t DriverID, _bstr_t DescriptiveName ) {
+    HRESULT _hr = raw_Register(DriverID, DescriptiveName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _Profile::Unregister ( _bstr_t DriverID ) {
+    HRESULT _hr = raw_Unregister(DriverID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t _Profile::GetValue ( _bstr_t DriverID, _bstr_t Name, _bstr_t SubKey ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_GetValue(DriverID, Name, SubKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _Profile::WriteValue ( _bstr_t DriverID, _bstr_t Name, _bstr_t Value, _bstr_t SubKey ) {
+    HRESULT _hr = raw_WriteValue(DriverID, Name, Value, SubKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline IDictionaryPtr _Profile::Values ( _bstr_t DriverID, _bstr_t SubKey ) {
+    struct IDictionary * _result = 0;
+    HRESULT _hr = raw_Values(DriverID, SubKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDictionaryPtr(_result, false);
+}
+
+inline HRESULT _Profile::DeleteValue ( _bstr_t DriverID, _bstr_t Name, _bstr_t SubKey ) {
+    HRESULT _hr = raw_DeleteValue(DriverID, Name, SubKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _Profile::CreateSubKey ( _bstr_t DriverID, _bstr_t SubKey ) {
+    HRESULT _hr = raw_CreateSubKey(DriverID, SubKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline IDictionaryPtr _Profile::SubKeys ( _bstr_t DriverID, _bstr_t SubKey ) {
+    struct IDictionary * _result = 0;
+    HRESULT _hr = raw_SubKeys(DriverID, SubKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDictionaryPtr(_result, false);
+}
+
+inline HRESULT _Profile::DeleteSubKey ( _bstr_t DriverID, _bstr_t SubKey ) {
+    HRESULT _hr = raw_DeleteSubKey(DriverID, SubKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t _Profile::GetDeviceTypeV ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DeviceTypeV(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _Profile::PutDeviceTypeV ( _bstr_t _arg1 ) {
+    HRESULT _hr = put_DeviceTypeV(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface _Timer wrapper method implementations
+//
+
+inline long _Timer::GetInterval ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Interval(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Timer::PutInterval ( long * _arg1 ) {
+    HRESULT _hr = put_Interval(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _Timer::GetEnabled ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Enabled(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Timer::PutEnabled ( VARIANT_BOOL * _arg1 ) {
+    HRESULT _hr = put_Enabled(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// dispinterface __Timer wrapper method implementations
+//
+
+inline HRESULT __Timer::Tick ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+//
+// interface _Serial wrapper method implementations
+//
+
+inline short _Serial::GetPort ( ) {
+    short _result = 0;
+    HRESULT _hr = get_Port(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Serial::PutPort ( short _arg1 ) {
+    HRESULT _hr = put_Port(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short _Serial::GetReceiveTimeout ( ) {
+    short _result = 0;
+    HRESULT _hr = get_ReceiveTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Serial::PutReceiveTimeout ( short _arg1 ) {
+    HRESULT _hr = put_ReceiveTimeout(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _Serial::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Serial::PutConnected ( VARIANT_BOOL _arg1 ) {
+    HRESULT _hr = put_Connected(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum PortSpeed _Serial::GetSpeed ( ) {
+    enum PortSpeed _result;
+    HRESULT _hr = get_Speed(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Serial::PutSpeed ( enum PortSpeed _arg1 ) {
+    HRESULT _hr = put_Speed(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _Serial::Transmit ( _bstr_t Data ) {
+    HRESULT _hr = raw_Transmit(Data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _Serial::TransmitBinary ( SAFEARRAY * * Data ) {
+    HRESULT _hr = raw_TransmitBinary(Data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t _Serial::Receive ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_Receive(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline unsigned char _Serial::ReceiveByte ( ) {
+    unsigned char _result = 0;
+    HRESULT _hr = raw_ReceiveByte(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Serial::ReceiveCounted ( short Count ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_ReceiveCounted(Count, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Serial::ReceiveTerminated ( _bstr_t Terminator ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_ReceiveTerminated(Terminator, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _Serial::ClearBuffers ( ) {
+    HRESULT _hr = raw_ClearBuffers();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline SAFEARRAY * _Serial::ReceiveCountedBinary ( short Count ) {
+    SAFEARRAY * _result = 0;
+    HRESULT _hr = raw_ReceiveCountedBinary(Count, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline SAFEARRAY * _Serial::ReceiveTerminatedBinary ( SAFEARRAY * * Terminator ) {
+    SAFEARRAY * _result = 0;
+    HRESULT _hr = raw_ReceiveTerminatedBinary(Terminator, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Serial::GetReceiveTimeoutMs ( ) {
+    long _result = 0;
+    HRESULT _hr = get_ReceiveTimeoutMs(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _Serial::PutReceiveTimeoutMs ( long _arg1 ) {
+    HRESULT _hr = put_ReceiveTimeoutMs(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface _Util wrapper method implementations
+//
+
+inline double _Util::DMSToDegrees ( _bstr_t DMS ) {
+    double _result = 0;
+    HRESULT _hr = raw_DMSToDegrees(DMS, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double _Util::HMSToHours ( _bstr_t HMS ) {
+    double _result = 0;
+    HRESULT _hr = raw_HMSToHours(HMS, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double _Util::HMSToDegrees ( _bstr_t HMS ) {
+    double _result = 0;
+    HRESULT _hr = raw_HMSToDegrees(HMS, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Util::DegreesToDMS ( double Degrees, _bstr_t DegDelim, _bstr_t MinDelim, _bstr_t SecDelim, short SecDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_DegreesToDMS(Degrees, DegDelim, MinDelim, SecDelim, SecDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::HoursToHMS ( double Hours, _bstr_t HrsDelim, _bstr_t MinDelim, _bstr_t SecDelim, short SecDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_HoursToHMS(Hours, HrsDelim, MinDelim, SecDelim, SecDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::DegreesToHMS ( double Degrees, _bstr_t HrsDelim, _bstr_t MinDelim, _bstr_t SecDelim, short SecDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_DegreesToHMS(Degrees, HrsDelim, MinDelim, SecDelim, SecDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::DegreesToDM ( double Degrees, _bstr_t DegDelim, _bstr_t MinDelim, short MinDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_DegreesToDM(Degrees, DegDelim, MinDelim, MinDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::HoursToHM ( double Hours, _bstr_t HrsDelim, _bstr_t MinDelim, short MinDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_HoursToHM(Hours, HrsDelim, MinDelim, MinDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::DegreesToHM ( double Degrees, _bstr_t HrsDelim, _bstr_t MinDelim, short MinDecimalDigits ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_DegreesToHM(Degrees, HrsDelim, MinDelim, MinDecimalDigits, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _Util::ASCOMYield ( ) {
+    HRESULT _hr = raw_ASCOMYield();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _Util::WaitForMilliseconds ( long Milliseconds ) {
+    HRESULT _hr = raw_WaitForMilliseconds(Milliseconds);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline enum MessageBoxAnswers _Util::ASCOMMessageBox ( _bstr_t Message, enum MessageBoxOptions Options, _bstr_t title ) {
+    enum MessageBoxAnswers _result;
+    HRESULT _hr = raw_ASCOMMessageBox(Message, Options, title, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Util::FormatVar ( const _variant_t & Value, _bstr_t FormatStr, enum FirstDayOfWeek FirstDayOfWeek, enum FirstWeekOfYear FirstWeekOfYear ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_FormatVar(Value, FormatStr, FirstDayOfWeek, FirstWeekOfYear, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::LTrimString ( _bstr_t Text ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_LTrimString(Text, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::RTrimString ( _bstr_t Text ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_RTrimString(Text, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Util::TrimString ( _bstr_t Text ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_TrimString(Text, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _Util::LoadDLL ( _bstr_t File ) {
+    HRESULT _hr = raw_LoadDLL(File);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

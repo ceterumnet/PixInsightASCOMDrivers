@@ -1,0 +1,1578 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (c694d2e1).
+//
+// c:\testdriver\windows\vc9\win32\debug\ascommasterinterfaces.tli
+//
+// Wrapper implementations for Win32 type library c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb
+// compiler-generated file created 02/05/11 at 17:57:10 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IRate wrapper method implementations
+//
+
+inline void IRate::PutMaximum ( double __MIDL_0084 ) {
+    HRESULT _hr = put_Maximum(__MIDL_0084);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double IRate::GetMaximum ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Maximum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IRate::PutMinimum ( double __MIDL_0086 ) {
+    HRESULT _hr = put_Minimum(__MIDL_0086);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double IRate::GetMinimum ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Minimum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface IAxisRates wrapper method implementations
+//
+
+inline long IAxisRates::GetCount ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IRatePtr IAxisRates::GetItem ( long Index ) {
+    struct IRate * _result = 0;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IRatePtr(_result, false);
+}
+
+inline IEnumVARIANTPtr IAxisRates::GetNewEnum ( ) {
+    struct IEnumVARIANT * _result = 0;
+    HRESULT _hr = get_NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IEnumVARIANTPtr(_result, false);
+}
+
+//
+// interface ITrackingRates wrapper method implementations
+//
+
+inline long ITrackingRates::GetCount ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline enum DriveRates ITrackingRates::GetItem ( long Index ) {
+    enum DriveRates _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IEnumVARIANTPtr ITrackingRates::GetNewEnum ( ) {
+    struct IEnumVARIANT * _result = 0;
+    HRESULT _hr = get_NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IEnumVARIANTPtr(_result, false);
+}
+
+//
+// interface ITelescope wrapper method implementations
+//
+
+inline enum AlignmentModes ITelescope::GetAlignmentMode ( ) {
+    enum AlignmentModes _result;
+    HRESULT _hr = get_AlignmentMode(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetAltitude ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Altitude(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetApertureArea ( ) {
+    double _result = 0;
+    HRESULT _hr = get_ApertureArea(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetApertureDiameter ( ) {
+    double _result = 0;
+    HRESULT _hr = get_ApertureDiameter(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetAtHome ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_AtHome(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetAtPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_AtPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetAzimuth ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Azimuth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanFindHome ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanFindHome(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanPulseGuide ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanPulseGuide(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetDeclinationRate ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetDeclinationRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetGuideRates ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetGuideRates(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetRightAscensionRate ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetRightAscensionRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetPierSide ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetPierSide(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSetTracking ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetTracking(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSlew ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSlew(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSlewAltAz ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSlewAltAz(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSlewAltAzAsync ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSlewAltAzAsync(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSlewAsync ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSlewAsync(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSync ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSync(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanSyncAltAz ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSyncAltAz(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetCanUnpark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanUnpark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutConnected ( VARIANT_BOOL __MIDL_0033 ) {
+    HRESULT _hr = put_Connected(__MIDL_0033);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetDeclination ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Declination(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetDeclinationRate ( ) {
+    double _result = 0;
+    HRESULT _hr = get_DeclinationRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutDeclinationRate ( double __MIDL_0036 ) {
+    HRESULT _hr = put_DeclinationRate(__MIDL_0036);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t ITelescope::GetDescription ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL ITelescope::GetDoesRefraction ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_DoesRefraction(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutDoesRefraction ( VARIANT_BOOL __MIDL_0039 ) {
+    HRESULT _hr = put_DoesRefraction(__MIDL_0039);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t ITelescope::GetDriverInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DriverInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ITelescope::GetDriverVersion ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DriverVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline enum EquatorialCoordinateType ITelescope::GetEquatorialSystem ( ) {
+    enum EquatorialCoordinateType _result;
+    HRESULT _hr = get_EquatorialSystem(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetFocalLength ( ) {
+    double _result = 0;
+    HRESULT _hr = get_FocalLength(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetGuideRateDeclination ( ) {
+    double _result = 0;
+    HRESULT _hr = get_GuideRateDeclination(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutGuideRateDeclination ( double __MIDL_0045 ) {
+    HRESULT _hr = put_GuideRateDeclination(__MIDL_0045);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetGuideRateRightAscension ( ) {
+    double _result = 0;
+    HRESULT _hr = get_GuideRateRightAscension(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutGuideRateRightAscension ( double __MIDL_0047 ) {
+    HRESULT _hr = put_GuideRateRightAscension(__MIDL_0047);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short ITelescope::GetInterfaceVersion ( ) {
+    short _result = 0;
+    HRESULT _hr = get_InterfaceVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ITelescope::GetIsPulseGuiding ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsPulseGuiding(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ITelescope::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline double ITelescope::GetRightAscension ( ) {
+    double _result = 0;
+    HRESULT _hr = get_RightAscension(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetRightAscensionRate ( ) {
+    double _result = 0;
+    HRESULT _hr = get_RightAscensionRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutRightAscensionRate ( double __MIDL_0053 ) {
+    HRESULT _hr = put_RightAscensionRate(__MIDL_0053);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum PierSide ITelescope::GetSideOfPier ( ) {
+    enum PierSide _result;
+    HRESULT _hr = get_SideOfPier(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutSideOfPier ( enum PierSide __MIDL_0055 ) {
+    HRESULT _hr = put_SideOfPier(__MIDL_0055);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetSiderealTime ( ) {
+    double _result = 0;
+    HRESULT _hr = get_SiderealTime(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ITelescope::GetSiteElevation ( ) {
+    double _result = 0;
+    HRESULT _hr = get_SiteElevation(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutSiteElevation ( double __MIDL_0058 ) {
+    HRESULT _hr = put_SiteElevation(__MIDL_0058);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetSiteLatitude ( ) {
+    double _result = 0;
+    HRESULT _hr = get_SiteLatitude(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutSiteLatitude ( double __MIDL_0060 ) {
+    HRESULT _hr = put_SiteLatitude(__MIDL_0060);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetSiteLongitude ( ) {
+    double _result = 0;
+    HRESULT _hr = get_SiteLongitude(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutSiteLongitude ( double __MIDL_0062 ) {
+    HRESULT _hr = put_SiteLongitude(__MIDL_0062);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL ITelescope::GetSlewing ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Slewing(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short ITelescope::GetSlewSettleTime ( ) {
+    short _result = 0;
+    HRESULT _hr = get_SlewSettleTime(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutSlewSettleTime ( short __MIDL_0065 ) {
+    HRESULT _hr = put_SlewSettleTime(__MIDL_0065);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetTargetDeclination ( ) {
+    double _result = 0;
+    HRESULT _hr = get_TargetDeclination(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutTargetDeclination ( double __MIDL_0067 ) {
+    HRESULT _hr = put_TargetDeclination(__MIDL_0067);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ITelescope::GetTargetRightAscension ( ) {
+    double _result = 0;
+    HRESULT _hr = get_TargetRightAscension(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutTargetRightAscension ( double __MIDL_0069 ) {
+    HRESULT _hr = put_TargetRightAscension(__MIDL_0069);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL ITelescope::GetTracking ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Tracking(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutTracking ( VARIANT_BOOL __MIDL_0071 ) {
+    HRESULT _hr = put_Tracking(__MIDL_0071);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum DriveRates ITelescope::GetTrackingRate ( ) {
+    enum DriveRates _result;
+    HRESULT _hr = get_TrackingRate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutTrackingRate ( enum DriveRates __MIDL_0073 ) {
+    HRESULT _hr = put_TrackingRate(__MIDL_0073);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline ITrackingRatesPtr ITelescope::GetTrackingRates ( ) {
+    struct ITrackingRates * _result = 0;
+    HRESULT _hr = get_TrackingRates(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ITrackingRatesPtr(_result, false);
+}
+
+inline DATE ITelescope::GetUTCDate ( ) {
+    DATE _result = 0;
+    HRESULT _hr = get_UTCDate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ITelescope::PutUTCDate ( DATE __MIDL_0076 ) {
+    HRESULT _hr = put_UTCDate(__MIDL_0076);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ITelescope::AbortSlew ( ) {
+    HRESULT _hr = raw_AbortSlew();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline IAxisRatesPtr ITelescope::AxisRates ( enum TelescopeAxes Axis ) {
+    struct IAxisRates * _result = 0;
+    HRESULT _hr = raw_AxisRates(Axis, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IAxisRatesPtr(_result, false);
+}
+
+inline VARIANT_BOOL ITelescope::CanMoveAxis ( enum TelescopeAxes Axis ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_CanMoveAxis(Axis, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline enum PierSide ITelescope::DestinationSideOfPier ( double RightAscension, double Declination ) {
+    enum PierSide _result;
+    HRESULT _hr = raw_DestinationSideOfPier(RightAscension, Declination, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT ITelescope::FindHome ( ) {
+    HRESULT _hr = raw_FindHome();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::MoveAxis ( enum TelescopeAxes Axis, double Rate ) {
+    HRESULT _hr = raw_MoveAxis(Axis, Rate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::Park ( ) {
+    HRESULT _hr = raw_Park();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::PulseGuide ( enum GuideDirections Direction, long Duration ) {
+    HRESULT _hr = raw_PulseGuide(Direction, Duration);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SetPark ( ) {
+    HRESULT _hr = raw_SetPark();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToAltAz ( double Azimuth, double Altitude ) {
+    HRESULT _hr = raw_SlewToAltAz(Azimuth, Altitude);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToAltAzAsync ( double Azimuth, double Altitude ) {
+    HRESULT _hr = raw_SlewToAltAzAsync(Azimuth, Altitude);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToCoordinates ( double RightAscension, double Declination ) {
+    HRESULT _hr = raw_SlewToCoordinates(RightAscension, Declination);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToCoordinatesAsync ( double RightAscension, double Declination ) {
+    HRESULT _hr = raw_SlewToCoordinatesAsync(RightAscension, Declination);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToTarget ( ) {
+    HRESULT _hr = raw_SlewToTarget();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SlewToTargetAsync ( ) {
+    HRESULT _hr = raw_SlewToTargetAsync();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SyncToAltAz ( double Azimuth, double Altitude ) {
+    HRESULT _hr = raw_SyncToAltAz(Azimuth, Altitude);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SyncToCoordinates ( double RightAscension, double Declination ) {
+    HRESULT _hr = raw_SyncToCoordinates(RightAscension, Declination);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::SyncToTarget ( ) {
+    HRESULT _hr = raw_SyncToTarget();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::Unpark ( ) {
+    HRESULT _hr = raw_Unpark();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ITelescope::CommandBlind ( _bstr_t Command, VARIANT_BOOL Raw ) {
+    HRESULT _hr = raw_CommandBlind(Command, Raw);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL ITelescope::CommandBool ( _bstr_t Command, VARIANT_BOOL Raw ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_CommandBool(Command, Raw, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ITelescope::CommandString ( _bstr_t Command, VARIANT_BOOL Raw ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_CommandString(Command, Raw, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IFocuser wrapper method implementations
+//
+
+inline VARIANT_BOOL IFocuser::GetAbsolute ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Absolute(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IFocuser::GetIsMoving ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsMoving(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IFocuser::GetLink ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Link(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFocuser::PutLink ( VARIANT_BOOL __MIDL_0095 ) {
+    HRESULT _hr = put_Link(__MIDL_0095);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFocuser::GetMaxIncrement ( ) {
+    long _result = 0;
+    HRESULT _hr = get_MaxIncrement(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFocuser::GetMaxStep ( ) {
+    long _result = 0;
+    HRESULT _hr = get_MaxStep(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long IFocuser::GetPosition ( ) {
+    long _result = 0;
+    HRESULT _hr = get_Position(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double IFocuser::GetStepSize ( ) {
+    double _result = 0;
+    HRESULT _hr = get_StepSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IFocuser::GetTempComp ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_TempComp(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFocuser::PutTempComp ( VARIANT_BOOL __MIDL_0101 ) {
+    HRESULT _hr = put_TempComp(__MIDL_0101);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IFocuser::GetTempCompAvailable ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_TempCompAvailable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double IFocuser::GetTemperature ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Temperature(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IFocuser::Halt ( ) {
+    HRESULT _hr = raw_Halt();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFocuser::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFocuser::Move ( long val ) {
+    HRESULT _hr = raw_Move(val);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IDome wrapper method implementations
+//
+
+inline double IDome::GetAltitude ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Altitude(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetAtHome ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_AtHome(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetAtPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_AtPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double IDome::GetAzimuth ( ) {
+    double _result = 0;
+    HRESULT _hr = get_Azimuth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanFindHome ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanFindHome(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSetAltitude ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetAltitude(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSetAzimuth ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetAzimuth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSetPark ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetPark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSetShutter ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetShutter(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSlave ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSlave(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetCanSyncAzimuth ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSyncAzimuth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IDome::PutConnected ( VARIANT_BOOL __MIDL_0117 ) {
+    HRESULT _hr = put_Connected(__MIDL_0117);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IDome::GetDescription ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t IDome::GetDriverInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DriverInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline short IDome::GetInterfaceVersion ( ) {
+    short _result = 0;
+    HRESULT _hr = get_InterfaceVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IDome::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL IDome::GetSlaved ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Slaved(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IDome::PutSlaved ( VARIANT_BOOL __MIDL_0123 ) {
+    HRESULT _hr = put_Slaved(__MIDL_0123);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum ShutterState IDome::GetShutterStatus ( ) {
+    enum ShutterState _result;
+    HRESULT _hr = get_ShutterStatus(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IDome::GetSlewing ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Slewing(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IDome::AbortSlew ( ) {
+    HRESULT _hr = raw_AbortSlew();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::CloseShutter ( ) {
+    HRESULT _hr = raw_CloseShutter();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::FindHome ( ) {
+    HRESULT _hr = raw_FindHome();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::OpenShutter ( ) {
+    HRESULT _hr = raw_OpenShutter();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::Park ( ) {
+    HRESULT _hr = raw_Park();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::SetPark ( ) {
+    HRESULT _hr = raw_SetPark();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::SlewToAltitude ( double Altitude ) {
+    HRESULT _hr = raw_SlewToAltitude(Altitude);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::SlewToAzimuth ( double Azimuth ) {
+    HRESULT _hr = raw_SlewToAzimuth(Azimuth);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::SyncToAzimuth ( double Azimuth ) {
+    HRESULT _hr = raw_SyncToAzimuth(Azimuth);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IDome::CommandBlind ( _bstr_t Command ) {
+    HRESULT _hr = raw_CommandBlind(Command);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL IDome::CommandBool ( _bstr_t Command ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_CommandBool(Command, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t IDome::CommandString ( _bstr_t Command ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_CommandString(Command, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface IRotator wrapper method implementations
+//
+
+inline VARIANT_BOOL IRotator::GetCanReverse ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanReverse(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IRotator::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IRotator::PutConnected ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_Connected(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL IRotator::GetIsMoving ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsMoving(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline float IRotator::GetPosition ( ) {
+    float _result = 0;
+    HRESULT _hr = get_Position(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IRotator::GetReverse ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Reverse(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IRotator::PutReverse ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_Reverse(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline float IRotator::GetStepSize ( ) {
+    float _result = 0;
+    HRESULT _hr = get_StepSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline float IRotator::GetTargetPosition ( ) {
+    float _result = 0;
+    HRESULT _hr = get_TargetPosition(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IRotator::Halt ( ) {
+    HRESULT _hr = raw_Halt();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IRotator::Move ( float Position ) {
+    HRESULT _hr = raw_Move(Position);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IRotator::MoveAbsolute ( float Position ) {
+    HRESULT _hr = raw_MoveAbsolute(Position);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IRotator::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ICamera wrapper method implementations
+//
+
+inline short ICamera::GetBinX ( ) {
+    short _result = 0;
+    HRESULT _hr = get_BinX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutBinX ( short pVal ) {
+    HRESULT _hr = put_BinX(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short ICamera::GetBinY ( ) {
+    short _result = 0;
+    HRESULT _hr = get_BinY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutBinY ( short pVal ) {
+    HRESULT _hr = put_BinY(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum CameraStates ICamera::GetCameraState ( ) {
+    enum CameraStates _result;
+    HRESULT _hr = get_CameraState(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long ICamera::GetCameraXSize ( ) {
+    long _result = 0;
+    HRESULT _hr = get_CameraXSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long ICamera::GetCameraYSize ( ) {
+    long _result = 0;
+    HRESULT _hr = get_CameraYSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanAbortExposure ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanAbortExposure(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanAsymmetricBin ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanAsymmetricBin(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanGetCoolerPower ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanGetCoolerPower(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanPulseGuide ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanPulseGuide(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanSetCCDTemperature ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanSetCCDTemperature(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetCanStopExposure ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CanStopExposure(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ICamera::GetCCDTemperature ( ) {
+    double _result = 0;
+    HRESULT _hr = get_CCDTemperature(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutConnected ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_Connected(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL ICamera::GetCoolerOn ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_CoolerOn(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutCoolerOn ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_CoolerOn(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ICamera::GetCoolerPower ( ) {
+    double _result = 0;
+    HRESULT _hr = get_CoolerPower(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ICamera::GetDescription ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline double ICamera::GetElectronsPerADU ( ) {
+    double _result = 0;
+    HRESULT _hr = get_ElectronsPerADU(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ICamera::GetFullWellCapacity ( ) {
+    double _result = 0;
+    HRESULT _hr = get_FullWellCapacity(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetHasShutter ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_HasShutter(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ICamera::GetHeatSinkTemperature ( ) {
+    double _result = 0;
+    HRESULT _hr = get_HeatSinkTemperature(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t ICamera::GetImageArray ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ImageArray(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t ICamera::GetImageArrayVariant ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ImageArrayVariant(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline VARIANT_BOOL ICamera::GetImageReady ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_ImageReady(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL ICamera::GetIsPulseGuiding ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_IsPulseGuiding(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ICamera::GetLastError ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_LastError(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline double ICamera::GetLastExposureDuration ( ) {
+    double _result = 0;
+    HRESULT _hr = get_LastExposureDuration(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ICamera::GetLastExposureStartTime ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_LastExposureStartTime(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long ICamera::GetMaxADU ( ) {
+    long _result = 0;
+    HRESULT _hr = get_MaxADU(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short ICamera::GetMaxBinX ( ) {
+    short _result = 0;
+    HRESULT _hr = get_MaxBinX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short ICamera::GetMaxBinY ( ) {
+    short _result = 0;
+    HRESULT _hr = get_MaxBinY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long ICamera::GetNumX ( ) {
+    long _result = 0;
+    HRESULT _hr = get_NumX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutNumX ( long pVal ) {
+    HRESULT _hr = put_NumX(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long ICamera::GetNumY ( ) {
+    long _result = 0;
+    HRESULT _hr = get_NumY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutNumY ( long pVal ) {
+    HRESULT _hr = put_NumY(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double ICamera::GetPixelSizeX ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PixelSizeX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ICamera::GetPixelSizeY ( ) {
+    double _result = 0;
+    HRESULT _hr = get_PixelSizeY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline double ICamera::GetSetCCDTemperature ( ) {
+    double _result = 0;
+    HRESULT _hr = get_SetCCDTemperature(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutSetCCDTemperature ( double pVal ) {
+    HRESULT _hr = put_SetCCDTemperature(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long ICamera::GetStartX ( ) {
+    long _result = 0;
+    HRESULT _hr = get_StartX(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutStartX ( long pVal ) {
+    HRESULT _hr = put_StartX(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long ICamera::GetStartY ( ) {
+    long _result = 0;
+    HRESULT _hr = get_StartY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ICamera::PutStartY ( long pVal ) {
+    HRESULT _hr = put_StartY(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT ICamera::AbortExposure ( ) {
+    HRESULT _hr = raw_AbortExposure();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICamera::PulseGuide ( enum GuideDirections Direction, long Duration ) {
+    HRESULT _hr = raw_PulseGuide(Direction, Duration);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICamera::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICamera::StartExposure ( double Duration, VARIANT_BOOL Light ) {
+    HRESULT _hr = raw_StartExposure(Duration, Light);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ICamera::StopExposure ( ) {
+    HRESULT _hr = raw_StopExposure();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IFilterWheel wrapper method implementations
+//
+
+inline VARIANT_BOOL IFilterWheel::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFilterWheel::PutConnected ( VARIANT_BOOL pVal ) {
+    HRESULT _hr = put_Connected(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline SAFEARRAY * IFilterWheel::GetFocusOffsets ( ) {
+    SAFEARRAY * _result = 0;
+    HRESULT _hr = get_FocusOffsets(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short IFilterWheel::GetPosition ( ) {
+    short _result = 0;
+    HRESULT _hr = get_Position(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFilterWheel::PutPosition ( short pVal ) {
+    HRESULT _hr = put_Position(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline SAFEARRAY * IFilterWheel::GetNames ( ) {
+    SAFEARRAY * _result = 0;
+    HRESULT _hr = get_Names(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IFilterWheel::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface ISwitch wrapper method implementations
+//
+
+inline VARIANT_BOOL ISwitch::GetConnected ( ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = get_Connected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void ISwitch::PutConnected ( VARIANT_BOOL __MIDL_0129 ) {
+    HRESULT _hr = put_Connected(__MIDL_0129);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t ISwitch::GetDescription ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ISwitch::GetDriverInfo ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DriverInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t ISwitch::GetDriverVersion ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_DriverVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline short ISwitch::GetInterfaceVersion ( ) {
+    short _result = 0;
+    HRESULT _hr = get_InterfaceVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short ISwitch::GetMaxSwitch ( ) {
+    short _result = 0;
+    HRESULT _hr = get_MaxSwitch(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t ISwitch::GetName ( ) {
+    BSTR _result = 0;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL ISwitch::GetSwitch ( short ID ) {
+    VARIANT_BOOL _result = 0;
+    HRESULT _hr = raw_GetSwitch(ID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT ISwitch::SetSwitch ( short ID, VARIANT_BOOL State ) {
+    HRESULT _hr = raw_SetSwitch(ID, State);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT ISwitch::SetupDialog ( ) {
+    HRESULT _hr = raw_SetupDialog();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t ISwitch::GetSwitchName ( short ID ) {
+    BSTR _result = 0;
+    HRESULT _hr = raw_GetSwitchName(ID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT ISwitch::SetSwitchName ( short ID, _bstr_t State ) {
+    HRESULT _hr = raw_SetSwitchName(ID, State);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
