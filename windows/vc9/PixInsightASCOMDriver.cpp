@@ -216,7 +216,8 @@ namespace pcl
 	//This may need to be a pointer instead...
 	void PixInsightASCOMDriver::ImageArray(UInt16Image *theImage)
 	{
-		long *imageData;
+		
+		uint32 *imageData;
 		SafeArrayAccessData(theCameraPtr->ImageArray.parray, (void **)&imageData);
 		int dims = SafeArrayGetDim(theCameraPtr->ImageArray.parray);
 		long ubound1, ubound2, lbound1, lbound2;
@@ -231,7 +232,7 @@ namespace pcl
 		uint16 *piImageData = **theImage;
 
 		for( size_type i = 0, N = theImage->NumberOfPixels(); i < N; ++i)
-			*piImageData++ = ASCOMDataToPi( *imageData++ );
+			*piImageData++ = *imageData++;
 
 		SafeArrayUnaccessData( theCameraPtr->ImageArray.parray );
 	}
