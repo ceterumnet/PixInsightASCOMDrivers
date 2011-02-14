@@ -17,7 +17,18 @@ namespace pcl
 	PixInsightASCOMDriver::PixInsightASCOMDriver()
 	{
 		theCameraPtr = NULL;
+		CoInitialize(NULL);
+		_ChooserPtr C = NULL;
 		
+		C.CreateInstance("DriverHelper.Chooser");
+		C->DeviceTypeV = "Camera";
+		_bstr_t  drvrId = C->Choose("");
+		
+		if(C != NULL)
+		{
+			C.Release();			
+			theCameraPtr.CreateInstance((LPCSTR)drvrId);
+		}
 	}
 
 	void PixInsightASCOMDriver::SetLogger(void(*_theLogger)(String))
@@ -117,23 +128,10 @@ namespace pcl
 
 	int PixInsightASCOMDriver::ConnectCamera()
 	{
-		CoInitialize(NULL);
-		_ChooserPtr C = NULL;
-		
-		C.CreateInstance("DriverHelper.Chooser");
-		C->DeviceTypeV = "Camera";
-		_bstr_t  drvrId = C->Choose("");
-
-		if(C != NULL)
+		if(theCameraPtr != NULL)
 		{
-			C.Release();
-			
-			theCameraPtr.CreateInstance((LPCSTR)drvrId);
-			if(theCameraPtr != NULL)
-			{
-				theCameraPtr->Connected = 1;
-				return 1;
-			}
+			theCameraPtr->Connected = 1;
+			return 1;
 		}
 		return 0;
 	}
