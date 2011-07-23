@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (c694d2e1).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (c694d2e1).
 //
 // c:\testdriver\windows\vc9\win32\debug\ascommasterinterfaces.tli
 //
 // Wrapper implementations for Win32 type library c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb
-// compiler-generated file created 02/05/11 at 17:57:10 - DO NOT EDIT!
+// compiler-generated file created 07/23/11 at 17:31:32 - DO NOT EDIT!
 
 #pragma once
 

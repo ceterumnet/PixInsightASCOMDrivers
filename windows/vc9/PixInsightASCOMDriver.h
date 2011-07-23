@@ -3,8 +3,8 @@
 #include <atlsafe.h>
 #pragma once
 
-#import "file:c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
-#import "file:C:\\Windows\\System32\\ScrRun.dll" \
+#import "c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
+#import "C:\\Windows\\System32\\ScrRun.dll" \
 	no_namespace \
 	rename("DeleteFile","DeleteFileItem") \
 	rename("MoveFile","MoveFileItem") \

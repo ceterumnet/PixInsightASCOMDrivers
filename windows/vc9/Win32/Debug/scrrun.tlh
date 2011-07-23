@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (6456c26e).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (6456c26e).
 //
 // c:\testdriver\windows\vc9\win32\debug\scrrun.tlh
 //
 // C++ source equivalent of Win32 type library C:\\Windows\\System32\\ScrRun.dll
-// compiler-generated file created 02/05/11 at 17:57:10 - DO NOT EDIT!
+// compiler-generated file created 07/23/11 at 17:31:32 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
