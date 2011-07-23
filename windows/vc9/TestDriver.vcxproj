@@ -81,6 +81,7 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -107,9 +108,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(PCLBINDIR32)\TestDriver-pxi.dll</OutputFile>
+      <OutputFile>$(PCLBINDIR32)\PixInsightASCOMCameraDriver-pxi.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PCLLIBDIR32);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>TestDriver.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>PixInsightASCOMCameraDriver.def</ModuleDefinitionFile>
       <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -148,9 +149,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>PCL-pxi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(PCLBINDIR64)\TestDriver-pxi.dll</OutputFile>
+      <OutputFile>$(PCLBINDIR64)\PixInsightASCOMCameraDriver-pxi.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PCLLIBDIR64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>TestDriver.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>PixInsightASCOMCameraDriver.def</ModuleDefinitionFile>
       <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -177,9 +178,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>PCL-pxi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(PCLBINDIR32)\TestDriver-pxi.dll</OutputFile>
+      <OutputFile>$(PCLBINDIR32)\PixInsightASCOMCameraDriver-pxi.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PCLLIBDIR32)/vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>TestDriver.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>PixInsightASCOMCameraDriver.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
@@ -206,9 +207,9 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>PCL-pxi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(PCLBINDIR64)\TestDriver-pxi.dll</OutputFile>
+      <OutputFile>$(PCLBINDIR64)\PixInsightASCOMCameraDriver-pxi.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PCLLIBDIR64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>TestDriver.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>PixInsightASCOMCameraDriver.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <LargeAddressAware>true</LargeAddressAware>
