@@ -26,10 +26,10 @@
     <ClInclude Include="DllExports.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PixInsightASCOMDriver.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="PixInsightASCOMDriver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

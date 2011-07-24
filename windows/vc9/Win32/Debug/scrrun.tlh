@@ -3,7 +3,7 @@
 // c:\pixinsightascomcameradriver\windows\vc9\win32\debug\scrrun.tlh
 //
 // C++ source equivalent of Win32 type library C:\\Windows\\System32\\ScrRun.dll
-// compiler-generated file created 07/23/11 at 18:16:36 - DO NOT EDIT!
+// compiler-generated file created 07/23/11 at 18:53:53 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)

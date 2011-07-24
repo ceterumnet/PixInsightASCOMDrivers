@@ -14,7 +14,7 @@
 
 extern "C"
 
-IMPEXP pcl::PixInsightASCOMDriver* InitializeCamera(void);
+IMPEXP pcl::PixInsightASCOMDriver* InitializeDevice(void);
 
 
 #endif	// DLLEXPORTS_H

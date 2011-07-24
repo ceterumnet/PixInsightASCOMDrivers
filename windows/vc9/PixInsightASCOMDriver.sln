@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PixInsightASCOMDriver", "TestDriver.vcxproj", "{1E7F3743-070F-4407-928E-2A4A7664F5BE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PixInsightASCOMFWDriver", "..\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj", "{52FEDF95-C527-455D-9DF3-1B777136131A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,12 @@ Global
 		{1E7F3743-070F-4407-928E-2A4A7664F5BE}.Release|Win32.Build.0 = Release|Win32
 		{1E7F3743-070F-4407-928E-2A4A7664F5BE}.Release|x64.ActiveCfg = Release|x64
 		{1E7F3743-070F-4407-928E-2A4A7664F5BE}.Release|x64.Build.0 = Release|x64
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Debug|Win32.Build.0 = Debug|Win32
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Debug|x64.ActiveCfg = Debug|Win32
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Release|Win32.ActiveCfg = Release|Win32
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Release|Win32.Build.0 = Release|Win32
+		{52FEDF95-C527-455D-9DF3-1B777136131A}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

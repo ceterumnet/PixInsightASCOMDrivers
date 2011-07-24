@@ -16,6 +16,7 @@ namespace pcl
 
 	PixInsightASCOMDriver::PixInsightASCOMDriver()
 	{
+		IFilterWheelPtr theFWPtr;
 		theCameraPtr = NULL;
 		CoInitialize(NULL);
 		_ChooserPtr C = NULL;
@@ -234,35 +235,6 @@ namespace pcl
 
 		SafeArrayUnaccessData( theCameraPtr->ImageArray.parray );
 	}
-		
-	//UInt32Image PixInsightASCOMDriver::ImageArray()
-	//{
-	//	while(!theCameraPtr->ImageReady)
-	//	{
-	//		Sleep(1000);
-	//	}
-	//	
-	//	UInt32Image theImageData;
-	//	theImageData.AllocateData(theCameraPtr->NumX, theCameraPtr->NumY);
-	//	CComSafeArray< long > safeArr;
-	//	safeArr.Attach(theCameraPtr->ImageArray.parray);
-	//	long idx[2];
-	//	long val;
-	//	for(int rowIdx = 0;rowIdx < theCameraPtr->NumY; rowIdx++)
-	//	{
-	//		UInt32Image::sample* v = theImageData.ScanLine(rowIdx);
-
-	//		for(int colIdx = 0;colIdx < theCameraPtr->NumX; colIdx++)
-	//		{
-	//			idx[0] = colIdx;
-	//			idx[1] = rowIdx;
-	//			safeArr.MultiDimGetAt(idx, val);
-	//			UInt32PixelTraits::FromSample((pcl::int16&)val, v[colIdx]);
-	//		}
-	//	}
-	//	safeArr.Detach();
-	//	return theImageData;
-	//}
 	
 	bool PixInsightASCOMDriver::ImageReady()
 	{
