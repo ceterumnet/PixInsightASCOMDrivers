@@ -83,6 +83,8 @@ namespace pcl
         virtual void StopExposure();
 		virtual double GetSetCCDTemperature();
 	private:
+		_bstr_t  drvrId;
+		_ChooserPtr C;
 		void (*theLogger)(String);
 		int ConnectCamera();
 		int DisconnectCamera();

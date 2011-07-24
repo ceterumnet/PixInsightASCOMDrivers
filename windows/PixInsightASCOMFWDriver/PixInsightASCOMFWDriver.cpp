@@ -18,11 +18,11 @@ namespace pcl
 	{
 		theFWPtr = NULL;
 		CoInitialize(NULL);
-		_ChooserPtr C = NULL;
+		C = NULL;
 		
 		C.CreateInstance("DriverHelper.Chooser");
 		C->DeviceTypeV = "FilterWheel";
-		_bstr_t  drvrId = C->Choose("");
+		drvrId = C->Choose("");
 		
 		if(C != NULL)
 		{

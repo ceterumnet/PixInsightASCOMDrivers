@@ -19,7 +19,7 @@ BOOL WINAPI DllMain(
   __in  LPVOID lpvReserved
 )
 {
-	if(fdwReason == DLL_PROCESS_DETACH )
-		driverRef->Dispose();
+	//if(fdwReason == DLL_PROCESS_DETACH )
+	//	driverRef->Dispose();
 	return true;
 }

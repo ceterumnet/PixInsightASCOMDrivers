@@ -40,6 +40,8 @@ namespace pcl
 		virtual uint8 MinPosition();
 		virtual bool IsMoving();
 	private:
+		_bstr_t  drvrId;
+		_ChooserPtr C;
 		void (*theLogger)(String);
 		int ConnectFW();
 		int DisconnectFW();
