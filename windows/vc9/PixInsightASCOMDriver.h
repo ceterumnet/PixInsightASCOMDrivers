@@ -27,6 +27,7 @@ namespace pcl
 	{
 	public:
 		PixInsightASCOMDriver();
+		virtual void Dispose();
 		virtual void SetLogger(void(*)(String));
 		virtual short BinX();
 	    virtual short BinY();

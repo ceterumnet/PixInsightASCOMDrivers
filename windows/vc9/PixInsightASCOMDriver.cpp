@@ -32,6 +32,12 @@ namespace pcl
 		}
 	}
 
+	void PixInsightASCOMDriver::Dispose()
+	{
+		if( theCameraPtr )
+			theCameraPtr.Release();
+	}
+
 	void PixInsightASCOMDriver::SetLogger(void(*_theLogger)(String))
 	{
 		theLogger = _theLogger;

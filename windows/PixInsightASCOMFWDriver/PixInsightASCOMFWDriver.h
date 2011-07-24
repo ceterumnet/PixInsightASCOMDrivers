@@ -20,7 +20,6 @@
 //#using <mscorlib.dll>
 using namespace AscomInterfacesLib;
 using namespace DriverHelper;
-using namespace System::Collections;
 
 namespace pcl
 {
@@ -30,6 +29,7 @@ namespace pcl
 	public:
 		PixInsightASCOMFWDriver ();
 		virtual void SetLogger(void(*)(String));
+		virtual void Dispose();
 	    virtual String Description();
 		virtual bool Connected();
 	    virtual int SetConnected(bool);
