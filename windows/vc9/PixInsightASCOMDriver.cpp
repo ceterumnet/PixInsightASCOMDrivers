@@ -22,6 +22,7 @@ namespace pcl
 		
 		C.CreateInstance("DriverHelper.Chooser");
 		C->DeviceTypeV = "Camera";
+		
 		drvrId = C->Choose("");
 		
 		if(C != NULL)
@@ -404,3 +405,4 @@ namespace pcl
 
 
 }
+	
