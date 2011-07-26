@@ -1,0 +1,17 @@
+﻿Build started 7/25/2011 8:16:19 PM.
+     1>Project "C:\PixInsightASCOMCameraDriver\windows\vc9\TestDriver.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "x64\Debug\PixInsightASCOMDriver.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\PixInsightASCOMCameraDriver\windows\vc9\x64\Debug\PixInsightASCOMDriver.dll) does not match the Linker's OutputFile property value (C:\PCL64\bin\PixInsightASCOMCameraDriver-pxi.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(PixInsightASCOMDriver) does not match the Linker's OutputFile property value (PixInsightASCOMCameraDriver-pxi). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\PCL64\bin\PixInsightASCOMCameraDriver-pxi.dll" /NOLOGO /LIBPATH:"G:\PCL-SDK\lib\windows\x86_64" "PCL-pxi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"PixInsightASCOMCameraDriver.def" /MANIFEST /ManifestFile:"x64\Debug\PixInsightASCOMDriver.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\PixInsightASCOMCameraDriver\windows\vc9\x64\Debug\PixInsightASCOMDriver.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"x64\Debug\PixInsightASCOMDriver.lib" /MACHINE:X64 /DLL x64\Debug\DllMain.obj
+         x64\Debug\PixInsightASCOMDriver.obj
+     1>LINK : fatal error LNK1104: cannot open file 'PCL-pxi.lib'
+     1>Done Building Project "C:\PixInsightASCOMCameraDriver\windows\vc9\TestDriver.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.05

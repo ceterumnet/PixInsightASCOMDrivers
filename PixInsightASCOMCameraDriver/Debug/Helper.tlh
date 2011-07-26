@@ -1,0 +1,626 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (ea3950e3).
+//
+// c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\Helper.tlh
+//
+// C++ source equivalent of Win32 type library DriverHelper.Chooser
+// compiler-generated file created 07/25/11 at 22:00:43 - DO NOT EDIT!
+
+//
+// Cross-referenced type libraries:
+//
+//
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace DriverHelper {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("6c41fa67-db56-4221-a120-35c50fb0d041"))
+/* LIBID */ __DriverHelper;
+struct __declspec(uuid("6584a675-f5d4-4c24-82eb-ab4eaea8c9c5"))
+/* dual interface */ _Serial;
+struct /* coclass */ Serial;
+struct __declspec(uuid("a970b0b4-982f-4f12-bada-6ee42d31fe27"))
+/* dual interface */ _Util;
+struct /* coclass */ Util;
+struct __declspec(uuid("afca6983-b844-41e4-8024-2d7f9bceba8c"))
+/* dual interface */ _Chooser;
+struct /* coclass */ Chooser;
+struct __declspec(uuid("f9753a79-1b26-4a3e-a1fc-250775c19f0b"))
+/* dual interface */ _Profile;
+struct /* coclass */ Profile;
+struct __declspec(uuid("363c40a0-321b-4476-92d6-6bc86c306b94"))
+/* dual interface */ _Timer;
+struct /* coclass */ Timer;
+struct __declspec(uuid("b7435319-a92e-444e-b4ed-c21bd6df8446"))
+/* dispinterface */ __Timer;
+enum PortSpeed;
+enum MessageBoxOptions;
+enum MessageBoxAnswers;
+enum FirstDayOfWeek;
+enum FirstWeekOfYear;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_Chooser, __uuidof(_Chooser));
+_COM_SMARTPTR_TYPEDEF(_Profile, __uuidof(_Profile));
+_COM_SMARTPTR_TYPEDEF(_Timer, __uuidof(_Timer));
+_COM_SMARTPTR_TYPEDEF(__Timer, __uuidof(__Timer));
+_COM_SMARTPTR_TYPEDEF(_Serial, __uuidof(_Serial));
+_COM_SMARTPTR_TYPEDEF(_Util, __uuidof(_Util));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("70af32bb-5ed3-489e-a119-cd97e5f1e435"))
+Serial;
+    // [ default ] interface _Serial
+    // interface IObjectSafety
+
+struct __declspec(uuid("7d51f28c-babc-4d38-b630-7997d24998b6"))
+Util;
+    // [ default ] interface _Util
+    // interface IObjectSafety
+
+struct __declspec(uuid("afca6983-b844-41e4-8024-2d7f9bceba8c"))
+_Chooser : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetDeviceTypeV,put=PutDeviceTypeV))
+    _bstr_t DeviceTypeV;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetDeviceType ( );
+    void PutDeviceType (
+        BSTR * _arg1 );
+    _bstr_t Choose (
+        _bstr_t CurrentDriverID );
+    _bstr_t GetDeviceTypeV ( );
+    void PutDeviceTypeV (
+        _bstr_t _arg1 );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_DeviceType (
+        /*[out,retval]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_DeviceType (
+        /*[in,out]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall raw_Choose (
+        /*[in]*/ BSTR CurrentDriverID,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+    virtual HRESULT _VtblGapPlaceholder4( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder5( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder6( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_DeviceTypeV (
+        /*[out,retval]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_DeviceTypeV (
+        /*[in]*/ BSTR _arg1 ) = 0;
+};
+
+struct __declspec(uuid("bde110b3-5859-440c-8aba-ad9a9d5f7481"))
+Chooser;
+    // [ default ] interface _Chooser
+    // interface IObjectSafety
+
+struct __declspec(uuid("f9753a79-1b26-4a3e-a1fc-250775c19f0b"))
+_Profile : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetDeviceTypeV,put=PutDeviceTypeV))
+    _bstr_t DeviceTypeV;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetDeviceType ( );
+    void PutDeviceType (
+        BSTR * _arg1 );
+    VARIANT_BOOL IsRegistered (
+        _bstr_t DriverID );
+    HRESULT Register (
+        _bstr_t DriverID,
+        _bstr_t DescriptiveName );
+    HRESULT Unregister (
+        _bstr_t DriverID );
+    _bstr_t GetValue (
+        _bstr_t DriverID,
+        _bstr_t Name,
+        _bstr_t SubKey );
+    HRESULT WriteValue (
+        _bstr_t DriverID,
+        _bstr_t Name,
+        _bstr_t Value,
+        _bstr_t SubKey );
+    IDictionaryPtr Values (
+        _bstr_t DriverID,
+        _bstr_t SubKey );
+    HRESULT DeleteValue (
+        _bstr_t DriverID,
+        _bstr_t Name,
+        _bstr_t SubKey );
+    HRESULT CreateSubKey (
+        _bstr_t DriverID,
+        _bstr_t SubKey );
+    IDictionaryPtr SubKeys (
+        _bstr_t DriverID,
+        _bstr_t SubKey );
+    HRESULT DeleteSubKey (
+        _bstr_t DriverID,
+        _bstr_t SubKey );
+    _bstr_t GetDeviceTypeV ( );
+    void PutDeviceTypeV (
+        _bstr_t _arg1 );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_DeviceType (
+        /*[out,retval]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_DeviceType (
+        /*[in,out]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall raw_IsRegistered (
+        /*[in]*/ BSTR DriverID,
+        /*[out,retval]*/ VARIANT_BOOL * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_Register (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR DescriptiveName ) = 0;
+      virtual HRESULT __stdcall raw_Unregister (
+        /*[in]*/ BSTR DriverID ) = 0;
+      virtual HRESULT __stdcall raw_GetValue (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR Name,
+        /*[in]*/ BSTR SubKey,
+        /*[out,retval]*/ BSTR * _arg4 ) = 0;
+      virtual HRESULT __stdcall raw_WriteValue (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR Name,
+        /*[in]*/ BSTR Value,
+        /*[in]*/ BSTR SubKey ) = 0;
+      virtual HRESULT __stdcall raw_Values (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR SubKey,
+        /*[out,retval]*/ struct IDictionary * * _arg3 ) = 0;
+      virtual HRESULT __stdcall raw_DeleteValue (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR Name,
+        /*[in]*/ BSTR SubKey ) = 0;
+      virtual HRESULT __stdcall raw_CreateSubKey (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR SubKey ) = 0;
+      virtual HRESULT __stdcall raw_SubKeys (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR SubKey,
+        /*[out,retval]*/ struct IDictionary * * _arg3 ) = 0;
+      virtual HRESULT __stdcall raw_DeleteSubKey (
+        /*[in]*/ BSTR DriverID,
+        /*[in]*/ BSTR SubKey ) = 0;
+    virtual HRESULT _VtblGapPlaceholder4( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder5( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder6( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_DeviceTypeV (
+        /*[out,retval]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_DeviceTypeV (
+        /*[in]*/ BSTR _arg1 ) = 0;
+};
+
+struct __declspec(uuid("edebaaf9-e097-4d30-aa5f-6a4b0f17dc6d"))
+Profile;
+    // [ default ] interface _Profile
+    // interface IObjectSafety
+
+struct __declspec(uuid("363c40a0-321b-4476-92d6-6bc86c306b94"))
+_Timer : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetInterval ( );
+    void PutInterval (
+        long * _arg1 );
+    VARIANT_BOOL GetEnabled ( );
+    void PutEnabled (
+        VARIANT_BOOL * _arg1 );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Interval (
+        /*[out,retval]*/ long * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_Interval (
+        /*[in,out]*/ long * _arg1 ) = 0;
+      virtual HRESULT __stdcall get_Enabled (
+        /*[out,retval]*/ VARIANT_BOOL * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_Enabled (
+        /*[in,out]*/ VARIANT_BOOL * _arg1 ) = 0;
+};
+
+struct __declspec(uuid("51c1a9fc-e1b8-45a9-b934-ee7de7dd1b3b"))
+Timer;
+    // [ default ] interface _Timer
+    // interface IObjectSafety
+    // [ default, source ] dispinterface __Timer
+
+struct __declspec(uuid("b7435319-a92e-444e-b4ed-c21bd6df8446"))
+__Timer : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT Tick ( );
+};
+
+enum __declspec(uuid("3b4688a7-e5e8-4645-8f15-258351df03b5"))
+PortSpeed
+{
+    ps300 = 300,
+    ps1200 = 1200,
+    ps2400 = 2400,
+    ps4800 = 4800,
+    ps9600 = 9600,
+    ps14400 = 14400,
+    ps19200 = 19200,
+    ps28800 = 28800,
+    ps38400 = 38400,
+    ps57600 = 57600,
+    ps115200 = 115200
+};
+
+struct __declspec(uuid("6584a675-f5d4-4c24-82eb-ab4eaea8c9c5"))
+_Serial : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetSpeed,put=PutSpeed))
+    enum PortSpeed Speed;
+    __declspec(property(get=GetConnected,put=PutConnected))
+    VARIANT_BOOL Connected;
+    __declspec(property(get=GetReceiveTimeout,put=PutReceiveTimeout))
+    short ReceiveTimeout;
+    __declspec(property(get=GetPort,put=PutPort))
+    short Port;
+    __declspec(property(get=GetReceiveTimeoutMs,put=PutReceiveTimeoutMs))
+    long ReceiveTimeoutMs;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    short GetPort ( );
+    void PutPort (
+        short _arg1 );
+    short GetReceiveTimeout ( );
+    void PutReceiveTimeout (
+        short _arg1 );
+    VARIANT_BOOL GetConnected ( );
+    void PutConnected (
+        VARIANT_BOOL _arg1 );
+    enum PortSpeed GetSpeed ( );
+    void PutSpeed (
+        enum PortSpeed _arg1 );
+    HRESULT Transmit (
+        _bstr_t Data );
+    HRESULT TransmitBinary (
+        SAFEARRAY * * Data );
+    _bstr_t Receive ( );
+    unsigned char ReceiveByte ( );
+    _bstr_t ReceiveCounted (
+        short Count );
+    _bstr_t ReceiveTerminated (
+        _bstr_t Terminator );
+    HRESULT ClearBuffers ( );
+    SAFEARRAY * ReceiveCountedBinary (
+        short Count );
+    SAFEARRAY * ReceiveTerminatedBinary (
+        SAFEARRAY * * Terminator );
+    long GetReceiveTimeoutMs ( );
+    void PutReceiveTimeoutMs (
+        long _arg1 );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_Port (
+        /*[out,retval]*/ short * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_Port (
+        /*[in]*/ short _arg1 ) = 0;
+      virtual HRESULT __stdcall get_ReceiveTimeout (
+        /*[out,retval]*/ short * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_ReceiveTimeout (
+        /*[in]*/ short _arg1 ) = 0;
+      virtual HRESULT __stdcall get_Connected (
+        /*[out,retval]*/ VARIANT_BOOL * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_Connected (
+        /*[in]*/ VARIANT_BOOL _arg1 ) = 0;
+      virtual HRESULT __stdcall get_Speed (
+        /*[out,retval]*/ enum PortSpeed * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_Speed (
+        /*[in]*/ enum PortSpeed _arg1 ) = 0;
+      virtual HRESULT __stdcall raw_Transmit (
+        /*[in]*/ BSTR Data ) = 0;
+      virtual HRESULT __stdcall raw_TransmitBinary (
+        /*[in,out]*/ SAFEARRAY * * Data ) = 0;
+      virtual HRESULT __stdcall raw_Receive (
+        /*[out,retval]*/ BSTR * _arg1 ) = 0;
+      virtual HRESULT __stdcall raw_ReceiveByte (
+        /*[out,retval]*/ unsigned char * _arg1 ) = 0;
+      virtual HRESULT __stdcall raw_ReceiveCounted (
+        /*[in]*/ short Count,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_ReceiveTerminated (
+        /*[in]*/ BSTR Terminator,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_ClearBuffers ( ) = 0;
+    virtual HRESULT _VtblGapPlaceholder4( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder5( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder6( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall raw_ReceiveCountedBinary (
+        /*[in]*/ short Count,
+        /*[out,retval]*/ SAFEARRAY * * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_ReceiveTerminatedBinary (
+        /*[in,out]*/ SAFEARRAY * * Terminator,
+        /*[out,retval]*/ SAFEARRAY * * _arg2 ) = 0;
+    virtual HRESULT _VtblGapPlaceholder7( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder8( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder9( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall get_ReceiveTimeoutMs (
+        /*[out,retval]*/ long * _arg1 ) = 0;
+      virtual HRESULT __stdcall put_ReceiveTimeoutMs (
+        /*[in]*/ long _arg1 ) = 0;
+};
+
+enum __declspec(uuid("027422a5-e2ce-455c-90a3-c0001038cd7b"))
+MessageBoxOptions
+{
+    mbOKOnly = 0,
+    mbOKCancel = 1,
+    mbAbortRetryIgnore = 2,
+    mbYesNoCancel = 3,
+    mbYesNo = 4,
+    mbRetryCancel = 5,
+    mbIconStop = 16,
+    mbIconQuestion = 32,
+    mbIconExclamation = 48,
+    mbIconInformation = 64,
+    mbDefButton1 = 0,
+    mbDefButton2 = 256,
+    mbDefButton3 = 512,
+    mbAbblicationModal = 0,
+    mbSystemModal = 4096,
+    mbNoFocus = 32768,
+    mbSetForeground = 65536,
+    mbDefaultDesktopOnly = 131072
+};
+
+enum __declspec(uuid("5475f540-0417-46bd-8eee-f4bdb9fde557"))
+MessageBoxAnswers
+{
+    mbOK = 1,
+    mbCancel = 2,
+    mbAbort = 3,
+    mbRetry = 4,
+    mbIgnore = 5,
+    mbYes = 6,
+    mbNo = 7
+};
+
+enum __declspec(uuid("6d64d5a9-e88a-4693-917e-eb115fdbb39f"))
+FirstDayOfWeek
+{
+    fmtUseSystemDayOfWeek = 0,
+    fmtSunday = 1,
+    fmtMonday = 2,
+    fmtTuesday = 3,
+    fmtWednesday = 4,
+    fmtThursday = 5,
+    fmtFriday = 6,
+    fmtSaturday = 7
+};
+
+enum __declspec(uuid("11a6cebe-fd26-4fa6-9b41-f79bd4f5e9df"))
+FirstWeekOfYear
+{
+    fmtUseSystem = 0,
+    fmtFirstJan1 = 1,
+    fmtFirstFourDays = 2,
+    fmtFirstFullWeek = 3
+};
+
+struct __declspec(uuid("a970b0b4-982f-4f12-bada-6ee42d31fe27"))
+_Util : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double DMSToDegrees (
+        _bstr_t DMS );
+    double HMSToHours (
+        _bstr_t HMS );
+    double HMSToDegrees (
+        _bstr_t HMS );
+    _bstr_t DegreesToDMS (
+        double Degrees,
+        _bstr_t DegDelim,
+        _bstr_t MinDelim,
+        _bstr_t SecDelim,
+        short SecDecimalDigits );
+    _bstr_t HoursToHMS (
+        double Hours,
+        _bstr_t HrsDelim,
+        _bstr_t MinDelim,
+        _bstr_t SecDelim,
+        short SecDecimalDigits );
+    _bstr_t DegreesToHMS (
+        double Degrees,
+        _bstr_t HrsDelim,
+        _bstr_t MinDelim,
+        _bstr_t SecDelim,
+        short SecDecimalDigits );
+    _bstr_t DegreesToDM (
+        double Degrees,
+        _bstr_t DegDelim,
+        _bstr_t MinDelim,
+        short MinDecimalDigits );
+    _bstr_t HoursToHM (
+        double Hours,
+        _bstr_t HrsDelim,
+        _bstr_t MinDelim,
+        short MinDecimalDigits );
+    _bstr_t DegreesToHM (
+        double Degrees,
+        _bstr_t HrsDelim,
+        _bstr_t MinDelim,
+        short MinDecimalDigits );
+    HRESULT ASCOMYield ( );
+    HRESULT WaitForMilliseconds (
+        long Milliseconds );
+    enum MessageBoxAnswers ASCOMMessageBox (
+        _bstr_t Message,
+        enum MessageBoxOptions Options,
+        _bstr_t title );
+    _bstr_t FormatVar (
+        const _variant_t & Value,
+        _bstr_t FormatStr,
+        enum FirstDayOfWeek FirstDayOfWeek,
+        enum FirstWeekOfYear FirstWeekOfYear );
+    _bstr_t LTrimString (
+        _bstr_t Text );
+    _bstr_t RTrimString (
+        _bstr_t Text );
+    _bstr_t TrimString (
+        _bstr_t Text );
+    HRESULT LoadDLL (
+        _bstr_t File );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+      virtual HRESULT __stdcall raw_DMSToDegrees (
+        /*[in]*/ BSTR DMS,
+        /*[out,retval]*/ double * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_HMSToHours (
+        /*[in]*/ BSTR HMS,
+        /*[out,retval]*/ double * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_HMSToDegrees (
+        /*[in]*/ BSTR HMS,
+        /*[out,retval]*/ double * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_DegreesToDMS (
+        /*[in]*/ double Degrees,
+        /*[in]*/ BSTR DegDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ BSTR SecDelim,
+        /*[in]*/ short SecDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg6 ) = 0;
+      virtual HRESULT __stdcall raw_HoursToHMS (
+        /*[in]*/ double Hours,
+        /*[in]*/ BSTR HrsDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ BSTR SecDelim,
+        /*[in]*/ short SecDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg6 ) = 0;
+      virtual HRESULT __stdcall raw_DegreesToHMS (
+        /*[in]*/ double Degrees,
+        /*[in]*/ BSTR HrsDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ BSTR SecDelim,
+        /*[in]*/ short SecDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg6 ) = 0;
+      virtual HRESULT __stdcall raw_DegreesToDM (
+        /*[in]*/ double Degrees,
+        /*[in]*/ BSTR DegDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ short MinDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg5 ) = 0;
+      virtual HRESULT __stdcall raw_HoursToHM (
+        /*[in]*/ double Hours,
+        /*[in]*/ BSTR HrsDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ short MinDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg5 ) = 0;
+      virtual HRESULT __stdcall raw_DegreesToHM (
+        /*[in]*/ double Degrees,
+        /*[in]*/ BSTR HrsDelim,
+        /*[in]*/ BSTR MinDelim,
+        /*[in]*/ short MinDecimalDigits,
+        /*[out,retval]*/ BSTR * _arg5 ) = 0;
+      virtual HRESULT __stdcall raw_ASCOMYield ( ) = 0;
+      virtual HRESULT __stdcall raw_WaitForMilliseconds (
+        /*[in]*/ long Milliseconds ) = 0;
+      virtual HRESULT __stdcall raw_ASCOMMessageBox (
+        /*[in]*/ BSTR Message,
+        /*[in]*/ enum MessageBoxOptions Options,
+        /*[in]*/ BSTR title,
+        /*[out,retval]*/ enum MessageBoxAnswers * _arg4 ) = 0;
+      virtual HRESULT __stdcall raw_FormatVar (
+        /*[in]*/ VARIANT Value,
+        /*[in]*/ BSTR FormatStr,
+        /*[in]*/ enum FirstDayOfWeek FirstDayOfWeek,
+        /*[in]*/ enum FirstWeekOfYear FirstWeekOfYear,
+        /*[out,retval]*/ BSTR * _arg5 ) = 0;
+      virtual HRESULT __stdcall raw_LTrimString (
+        /*[in]*/ BSTR Text,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_RTrimString (
+        /*[in]*/ BSTR Text,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_TrimString (
+        /*[in]*/ BSTR Text,
+        /*[out,retval]*/ BSTR * _arg2 ) = 0;
+      virtual HRESULT __stdcall raw_LoadDLL (
+        /*[in]*/ BSTR File ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\Helper.tli"
+
+} // namespace DriverHelper
+
+#pragma pack(pop)
