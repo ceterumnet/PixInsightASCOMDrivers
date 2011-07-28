@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (47442e01).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (3a3f91d5).
 //
-// c:\pixinsightascomcameradriver\windows\pixinsightascomfwdriver\debug\ascommasterinterfaces.tlh
+// c:\pixinsightascomdrivers\windows\pixinsightascomfwdriver\debug\ascommasterinterfaces.tlh
 //
 // C++ source equivalent of Win32 type library c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb
-// compiler-generated file created 07/24/11 at 12:47:11 - DO NOT EDIT!
+// compiler-generated file created 07/27/11 at 07:58:07 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -1413,7 +1413,7 @@ ISwitch : IDispatch
 // Wrapper method implementations
 //
 
-#include "c:\pixinsightascomcameradriver\windows\pixinsightascomfwdriver\debug\ascommasterinterfaces.tli"
+#include "c:\pixinsightascomdrivers\windows\pixinsightascomfwdriver\debug\ascommasterinterfaces.tli"
 
 } // namespace AscomInterfacesLib
 

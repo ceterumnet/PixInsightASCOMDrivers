@@ -1,6 +1,7 @@
 #include <IPixInsightCamera.h>
 #include "stdafx.h"
 #include <atlsafe.h>
+#include "XYDispDriver.h"
 #pragma once
 
 #import "c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
@@ -84,11 +85,13 @@ namespace pcl
 		virtual double GetSetCCDTemperature();
 	private:
 		_bstr_t  drvrId;
-		_ChooserPtr C;
+		
 		void (*theLogger)(String);
-		int ConnectCamera();
-		int DisconnectCamera();
-		ICameraPtr theCameraPtr;
+		int ConnectCamera( );
+		int DisconnectCamera( );
+		int _InvokeSetConnected( bool connect );
+		int _InvokeMethod( WCHAR *member, DISPPARAMS &dispparams, VARIANT &varResult);
+		XYDispDriver theCameraPtr2;
 		uint16 ASCOMDataToPi( long );
 		
 	};

@@ -68,10 +68,12 @@
     <ClInclude Include="DllExports.h" />
     <ClInclude Include="PixInsightASCOMCameraDriver.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="XYDispDriver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="PixInsightASCOMCameraDriver.cpp" />
+    <ClCompile Include="XYDispDriver.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

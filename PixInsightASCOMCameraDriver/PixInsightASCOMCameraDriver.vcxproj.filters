@@ -24,12 +24,18 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="XYDispDriver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PixInsightASCOMCameraDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XYDispDriver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

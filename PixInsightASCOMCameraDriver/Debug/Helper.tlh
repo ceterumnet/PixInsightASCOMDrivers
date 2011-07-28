@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (ea3950e3).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (d4898860).
 //
-// c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\Helper.tlh
+// c:\pixinsightascomdrivers\pixinsightascomcameradriver\debug\Helper.tlh
 //
 // C++ source equivalent of Win32 type library DriverHelper.Chooser
-// compiler-generated file created 07/25/11 at 22:00:43 - DO NOT EDIT!
+// compiler-generated file created 07/27/11 at 09:29:26 - DO NOT EDIT!
 
 //
 // Cross-referenced type libraries:
@@ -619,7 +619,7 @@ _Util : IDispatch
 // Wrapper method implementations
 //
 
-#include "c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\Helper.tli"
+#include "c:\pixinsightascomdrivers\pixinsightascomcameradriver\debug\Helper.tli"
 
 } // namespace DriverHelper
 

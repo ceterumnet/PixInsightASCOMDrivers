@@ -1,24 +1,21 @@
 #include "PixInsightASCOMCameraDriver.h"
 
-#define ASCOM_WRAP(PROPERTY) if(theCameraPtr->Connected)\
-								return theCameraPtr->PROPERTY;\
-							 return -1;
+#define ASCOM_WRAP_BOOL(PROPERTY) 		if( theCameraPtr2.GetProperty("Connected")->boolVal == VARIANT_TRUE)\
+										{\
+											if( theCameraPtr2.GetProperty("PROPERTY")->boolVal == VARIANT_TRUE)\
+											return true;\
+										}\
+										return false;
 
-#define ASCOM_WRAP_BOOL(PROPERTY) if(theCameraPtr->Connected)\
-								  {\
-									if(theCameraPtr->PROPERTY == VARIANT_TRUE)\
-										return true;\
-									}\
-								  return false;
-
+		
 namespace pcl
 {
 
 	PixInsightASCOMCameraDriver::PixInsightASCOMCameraDriver()
 	{
-		theCameraPtr = NULL;
+		
 		CoInitialize(NULL);
-		C = NULL;
+		_ChooserPtr C = NULL;
 		
 		C.CreateInstance("DriverHelper.Chooser");
 		C->DeviceTypeV = "Camera";
@@ -28,14 +25,13 @@ namespace pcl
 		if(C != NULL)
 		{
 			C.Release();			
-			theCameraPtr.CreateInstance((LPCSTR)drvrId);
+			theCameraPtr2.CreateObject(drvrId);
 		}
 	}
 
 	void PixInsightASCOMCameraDriver::Dispose()
 	{
-		if( theCameraPtr )
-			theCameraPtr.Release();
+		theCameraPtr2.Clear();
 	}
 
 	void PixInsightASCOMCameraDriver::SetLogger(void(*_theLogger)(String))
@@ -45,35 +41,39 @@ namespace pcl
 	}
 	short PixInsightASCOMCameraDriver::BinX()
 	{
-		ASCOM_WRAP(BinX);
+		VARIANT *res = theCameraPtr2.GetProperty("BinX");
+		return res->iVal;
+		
 	}
 	short PixInsightASCOMCameraDriver::BinY()
 	{
-		ASCOM_WRAP(BinY);
+		VARIANT *res = theCameraPtr2.GetProperty("BinY");
+		return res->iVal;
 	}
 	int PixInsightASCOMCameraDriver::SetBinX(short binX)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->BinX = binX;
+			theCameraPtr2.SetProperty("BinX",  binX);
 			return 1;
 		}
 		return -1;
 	}
 	int PixInsightASCOMCameraDriver::SetBinY(short binY)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->BinY = binY;
+			theCameraPtr2.SetProperty("BinY",  binY);
 			return 1;
 		}
 		return -1;
 	}
+
 	IPixInsightCamera::CameraStateEnum PixInsightASCOMCameraDriver::CameraState()
 	{
-		if(theCameraPtr->Connected)
+		if( this->Connected() )
 		{
-			switch (theCameraPtr->CameraState) {
+			switch ( theCameraPtr2.GetProperty("CameraState")->intVal ) {
 				case cameraDownload :
 					return CameraDownload;
 				case cameraError :
@@ -94,11 +94,13 @@ namespace pcl
 	}
 	long PixInsightASCOMCameraDriver::CameraXSize()
 	{
-		ASCOM_WRAP(CameraXSize);
+		VARIANT *res = theCameraPtr2.GetProperty("CameraXSize");
+		return res->iVal;
 	}
 	long PixInsightASCOMCameraDriver::CameraYSize()
 	{
-		ASCOM_WRAP(CameraYSize);
+		VARIANT *res = theCameraPtr2.GetProperty("CameraYSize");
+		return res->iVal;
 	}
 	bool PixInsightASCOMCameraDriver::CanAbortExposure()
 	{
@@ -118,7 +120,12 @@ namespace pcl
 	}
 	bool PixInsightASCOMCameraDriver::CanSetCCDTemperature()
 	{
-		ASCOM_WRAP_BOOL(CanSetCCDTemperature);
+		if( theCameraPtr2.GetProperty("Connected")->boolVal == VARIANT_TRUE)
+		{
+			if( theCameraPtr2.GetProperty("CanSetCCDTemperature")->boolVal == VARIANT_TRUE)
+				return true;
+		}
+		return false;
 	}
 	bool PixInsightASCOMCameraDriver::CanStopExposure()
 	{
@@ -126,95 +133,65 @@ namespace pcl
 	}
 	double PixInsightASCOMCameraDriver::CCDTemperature()
 	{
-		ASCOM_WRAP(CCDTemperature);
-	}
-	bool PixInsightASCOMCameraDriver::Connected()
-	{
-		ASCOM_WRAP_BOOL(Connected);
+		VARIANT *res = theCameraPtr2.GetProperty("CCDTemperature");
+		return res->dblVal;
 	}
 
-	int PixInsightASCOMCameraDriver::ConnectCamera()
+	bool PixInsightASCOMCameraDriver::Connected()
 	{
-		if(theCameraPtr != NULL)
-		{
-			theCameraPtr->Connected = 1;
-			return 1;
-		}
-		return 0;
+		VARIANT *res = theCameraPtr2.GetProperty("Connected");
+		if( res->boolVal == VARIANT_TRUE )
+			return true;
+		return false;
+	}
+
+	int PixInsightASCOMCameraDriver::ConnectCamera(  )
+	{
+		return theCameraPtr2.SetProperty( "Connected", true );
 	}
 
 	int PixInsightASCOMCameraDriver::DisconnectCamera()
 	{
-		if(theCameraPtr->Connected) {
-			theCameraPtr->Connected = false;
-			return 1;
-		}			
-		return 0;
+		return theCameraPtr2.SetProperty( "Connected", false );
 	}
 
 	int PixInsightASCOMCameraDriver::SetConnected(bool connectCamera)
 	{
-		HRESULT hr;
-		//CComPtr<ICamera> dispatch;
-		DISPID dispid;
-		WCHAR *member = L"Connected";
-		DISPPARAMS dispparams;
-		dispparams.cArgs = 1;
-		dispparams.cNamedArgs = 0;
-		dispparams.rgvarg = new VARIANTARG[dispparams.cArgs];
-		dispparams.rgvarg[0].vt =  VT_BOOL;
-        dispparams.rgvarg[0].iVal =  VARIANT_TRUE;
-		VARIANT varResult;
-		// Get your pointer to the IDispatch interface on the object here.  Also setup your params in dispparams.
-
-		hr = theCameraPtr->GetIDsOfNames(IID_NULL, &member, 1, LOCALE_SYSTEM_DEFAULT, &dispid);
-		if (SUCCEEDED(hr)) {
-			//We may need to deal with initialization here...
-			if(connectCamera == true && theCameraPtr == NULL)
-			{
-				return 0;
-			}
-			if( connectCamera == true && theCameraPtr )
-			{
-				hr = theCameraPtr->Invoke(1, IID_NULL, LOCALE_USER_DEFAULT, DISPATCH_METHOD, &dispparams, &varResult, NULL, NULL);
-				return hr;
-			}
-			else if(connectCamera == true && theCameraPtr->Connected == VARIANT_TRUE)
-			{
+		if( connectCamera == true )
+		{
+			if( this->Connected() )
 				return 1;
-			}
-			else if(connectCamera == false && theCameraPtr->Connected == VARIANT_TRUE)
-			{
-				return PixInsightASCOMCameraDriver::DisconnectCamera();
-			}
+			else
+				return this->ConnectCamera();
 		}
-
-		
-		
-		return 0;
+		else
+		{
+			if( this->Connected() )
+				return this->DisconnectCamera( );
+			else 
+				return 1;
+		}
 	}
 
 	bool PixInsightASCOMCameraDriver::CoolerOn()
 	{
-		ASCOM_WRAP_BOOL(CoolerOn);
+		ASCOM_WRAP_BOOL(CoolerOn);		
 	}
+
 	int PixInsightASCOMCameraDriver::SetCoolerOn(bool coolerOn)
 	{
-		if(theCameraPtr->Connected && coolerOn)
+		if(this->Connected())
 		{
-			theCameraPtr->CoolerOn = VARIANT_TRUE;
+			theCameraPtr2.SetProperty( "CoolerOn", coolerOn );
 			return 1;
 		}
-		else if(theCameraPtr->Connected && !coolerOn)
-		{
-			theCameraPtr->CoolerOn = VARIANT_FALSE;
-			return 1;
-		}
+		
 		return 0;
 	}
 	double PixInsightASCOMCameraDriver::CoolerPower()
 	{
-		ASCOM_WRAP(CoolerPower);
+		//ASCOM_WRAP(CoolerPower);
+		return 1;
 	}
 	String PixInsightASCOMCameraDriver::Description()
 	{
@@ -223,12 +200,14 @@ namespace pcl
 
 	double PixInsightASCOMCameraDriver::ElectronsPerADU()
 	{
-		ASCOM_WRAP(ElectronsPerADU);
+		//ASCOM_WRAP(ElectronsPerADU);
+		return 1;
 	}
 
 	double PixInsightASCOMCameraDriver::FullWellCapacity()
 	{
-		ASCOM_WRAP(FullWellCapacity);
+		//ASCOM_WRAP(FullWellCapacity);
+		return 1;
 	}
 
 	bool PixInsightASCOMCameraDriver::HasShutter()
@@ -238,7 +217,8 @@ namespace pcl
 
 	double PixInsightASCOMCameraDriver::HeatSinkTemperature()
 	{
-		ASCOM_WRAP(HeatSinkTemperature);
+		//ASCOM_WRAP(HeatSinkTemperature);
+		return 1;
 	}
 	uint16 PixInsightASCOMCameraDriver::ASCOMDataToPi( long _i )
 	{
@@ -250,24 +230,24 @@ namespace pcl
 	void PixInsightASCOMCameraDriver::ImageArray(UInt16Image *theImage)
 	{
 		
-		uint32 *imageData;
-		SafeArrayAccessData(theCameraPtr->ImageArray.parray, (void **)&imageData);
-		int dims = SafeArrayGetDim(theCameraPtr->ImageArray.parray);
-		long ubound1, ubound2, lbound1, lbound2;
-		SafeArrayGetUBound(theCameraPtr->ImageArray.parray,1,&ubound1);
-		SafeArrayGetUBound(theCameraPtr->ImageArray.parray,2,&ubound2);
-		SafeArrayGetLBound(theCameraPtr->ImageArray.parray,1,&lbound1);
-		SafeArrayGetLBound(theCameraPtr->ImageArray.parray,2,&lbound2);
+		//uint32 *imageData;
+		//SafeArrayAccessData(theCameraPtr->ImageArray.parray, (void **)&imageData);
+		//int dims = SafeArrayGetDim(theCameraPtr->ImageArray.parray);
+		//long ubound1, ubound2, lbound1, lbound2;
+		//SafeArrayGetUBound(theCameraPtr->ImageArray.parray,1,&ubound1);
+		//SafeArrayGetUBound(theCameraPtr->ImageArray.parray,2,&ubound2);
+		//SafeArrayGetLBound(theCameraPtr->ImageArray.parray,1,&lbound1);
+		//SafeArrayGetLBound(theCameraPtr->ImageArray.parray,2,&lbound2);
 
-		int sizeX = ubound1 - lbound1;
-		int sizeY = ubound2 - lbound2;	
-		
-		uint16 *piImageData = **theImage;
+		//int sizeX = ubound1 - lbound1;
+		//int sizeY = ubound2 - lbound2;	
+		//
+		//uint16 *piImageData = **theImage;
 
-		for( size_type i = 0, N = theImage->NumberOfPixels(); i < N; ++i)
-			*piImageData++ = *imageData++;
+		//for( size_type i = 0, N = theImage->NumberOfPixels(); i < N; ++i)
+		//	*piImageData++ = *imageData++;
 
-		SafeArrayUnaccessData( theCameraPtr->ImageArray.parray );
+		//SafeArrayUnaccessData( theCameraPtr->ImageArray.parray );
 	}
 	
 	bool PixInsightASCOMCameraDriver::ImageReady()
@@ -282,77 +262,85 @@ namespace pcl
 
 	String PixInsightASCOMCameraDriver::LastError()
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected() )
 		{
-			return String((wchar_t *)theCameraPtr->LastError);
+			return String((wchar_t *)theCameraPtr2.GetProperty("LastError"));
 		}
 		return String("");
 	}
 	double PixInsightASCOMCameraDriver::LastExposureDuration()
 	{
-		ASCOM_WRAP(LastExposureDuration);
+		//ASCOM_WRAP(LastExposureDuration);
+		return 1;
 	}
 	// Reports the actual exposure start in the FITS-standard CCYY-MM-DDThh:mm:ss[.sss...] format.
 	String PixInsightASCOMCameraDriver::LastExposureStartTime()
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			return String((wchar_t *)theCameraPtr->LastExposureStartTime);
+			return String((wchar_t *)theCameraPtr2.GetProperty("LastExposureStartTime"));
 		}
 		return String("");
 	}
 	long PixInsightASCOMCameraDriver::MaxADU()
 	{
-		ASCOM_WRAP(MaxADU);
+		//ASCOM_WRAP(MaxADU);
+		return 1;
 	}
 	short PixInsightASCOMCameraDriver::MaxBinX()
 	{
-		ASCOM_WRAP(MaxBinX);
+		VARIANT *res = theCameraPtr2.GetProperty("MaxBinX");
+		return res->iVal;
 	}
 	short PixInsightASCOMCameraDriver::MaxBinY()
 	{
-		ASCOM_WRAP(MaxBinY);
+		VARIANT *res = theCameraPtr2.GetProperty("MaxBinY");
+		return res->iVal;
 	}
 	long PixInsightASCOMCameraDriver::NumX()
 	{
-		ASCOM_WRAP(NumX);
+		VARIANT *res = theCameraPtr2.GetProperty("NumX");
+		return res->iVal;
 	}
 	long PixInsightASCOMCameraDriver::NumY()
 	{
-		ASCOM_WRAP(NumY);
+		VARIANT *res = theCameraPtr2.GetProperty("NumY");
+		return res->iVal;
 	}
 	int PixInsightASCOMCameraDriver::SetNumX(long numX)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->NumX = numX;
+			theCameraPtr2.SetProperty("NumX",  numX);
 			return 1;
 		}
-		return 0;
+		return -1;
 	}
 	int PixInsightASCOMCameraDriver::SetNumY(long numY)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->NumY = numY;
+			theCameraPtr2.SetProperty("NumY",  numY);
 			return 1;
 		}
-		return 0;	
+		return -1;
 	}
 	double PixInsightASCOMCameraDriver::PixelSizeX()
 	{
-		ASCOM_WRAP(PixelSizeX);
+		VARIANT *res = theCameraPtr2.GetProperty("PixelSizeX");
+		return res->dblVal;
 	}
 	double PixInsightASCOMCameraDriver::PixelSizeY()
 	{
-		ASCOM_WRAP(PixelSizeY);
+		VARIANT *res = theCameraPtr2.GetProperty("PixelSizeY");
+		return res->dblVal;
 	}
 
 	int PixInsightASCOMCameraDriver::SetCCDTemperature(double ccdTemp)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->SetCCDTemperature = ccdTemp;
+			theCameraPtr2.SetProperty("SetCCDTemperature", ccdTemp);
 			return 1;
 		}
 		return 0;	
@@ -360,89 +348,92 @@ namespace pcl
 
 	double PixInsightASCOMCameraDriver::GetSetCCDTemperature()
 	{
-		ASCOM_WRAP(SetCCDTemperature);
+		VARIANT *res = theCameraPtr2.GetProperty("SetCCDTemperature");
+		return res->dblVal;
 	}
 
 	double PixInsightASCOMCameraDriver::StartX()
 	{
-		ASCOM_WRAP(StartX);
+		VARIANT *res = theCameraPtr2.GetProperty("StartX");
+		return res->dblVal;
 	}
 	int PixInsightASCOMCameraDriver::SetStartX(double setX)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->StartX = setX;
+			theCameraPtr2.SetProperty("StartX", setX);
 			return 1;
 		}
 		return 0;	
 	}
 	double PixInsightASCOMCameraDriver::StartY()
 	{
-		ASCOM_WRAP(StartY);
+		VARIANT *res = theCameraPtr2.GetProperty("StartY");
+		return res->dblVal;
 	}
 	int PixInsightASCOMCameraDriver::SetStartY(double setY)
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->StartY = setY;
+			theCameraPtr2.SetProperty("StartY", setY);
 			return 1;
 		}
-		return 0;	
+		return 0;
 	}
 	int PixInsightASCOMCameraDriver::AbortExposure()
 	{
-		if(theCameraPtr->Connected)
+		if(this->Connected())
 		{
-			theCameraPtr->AbortExposure();
+			theCameraPtr2.InvokeMethod("AbortExposure");
 			return 1;
 		}
 		return 0;
 	}
 	int PixInsightASCOMCameraDriver::PulseGuide(IPixInsightCamera::GuideDirection direction, long duration)
 	{
-		if(theCameraPtr->Connected)
-		{
-			switch(direction) {
-				case GuideNorth:
-					return theCameraPtr->PulseGuide(guideNorth, duration);
-				case GuideSouth:
-					return theCameraPtr->PulseGuide(guideSouth, duration);
-				case GuideEast:
-					return theCameraPtr->PulseGuide(guideEast, duration);
-				case GuideWest:
-					return theCameraPtr->PulseGuide(guideWest, duration);
-			}
-		}
+		//if(theCameraPtr->Connected)
+		//{
+		//	switch(direction) {
+		//		case GuideNorth:
+		//			return theCameraPtr->PulseGuide(guideNorth, duration);
+		//		case GuideSouth:
+		//			return theCameraPtr->PulseGuide(guideSouth, duration);
+		//		case GuideEast:
+		//			return theCameraPtr->PulseGuide(guideEast, duration);
+		//		case GuideWest:
+		//			return theCameraPtr->PulseGuide(guideWest, duration);
+		//	}
+		//}
 		return 0;	
 	}
 	void PixInsightASCOMCameraDriver::SetupDialog()
 	{
-		if(theCameraPtr->Connected)
-			theCameraPtr->SetupDialog();
+		//if(theCameraPtr->Connected)
+		//	theCameraPtr->SetupDialog();
 	}
 	void PixInsightASCOMCameraDriver::StartExposure(double duration)
 	{
-		//if(theCameraPtr->Connected)
-		//	theCameraPtr->StartExposure(duration, VARIANT_TRUE);
-		HRESULT hr;
-		//CComPtr<ICamera> dispatch;
-		DISPID dispid;
-		WCHAR *member = L"StartExposure";
-		DISPPARAMS* dispparams;
-		VARIANT varResult;
-		// Get your pointer to the IDispatch interface on the object here.  Also setup your params in dispparams.
+		////if(theCameraPtr->Connected)
+		////	theCameraPtr->StartExposure(duration, VARIANT_TRUE);
+		//HRESULT hr;
+		////CComPtr<ICamera> dispatch;
+		//DISPID dispid;
+		//WCHAR *member = L"StartExposure";
+		//DISPPARAMS* dispparams;
+		//VARIANT varResult;
+		//// Get your pointer to the IDispatch interface on the object here.  Also setup your params in dispparams.
 
-		hr = theCameraPtr->GetIDsOfNames(IID_NULL, &member, 1, LOCALE_SYSTEM_DEFAULT, &dispid);
-		if (SUCCEEDED(hr)) {
-		  hr = theCameraPtr->Invoke(1, IID_NULL, LOCALE_USER_DEFAULT, DISPATCH_METHOD, dispparams, &varResult, NULL, NULL);
-		}
+		//hr = theCameraPtr->GetIDsOfNames(IID_NULL, &member, 1, LOCALE_SYSTEM_DEFAULT, &dispid);
+		//if (SUCCEEDED(hr)) {
+		//  hr = theCameraPtr->Invoke(1, IID_NULL, LOCALE_USER_DEFAULT, DISPATCH_METHOD, dispparams, &varResult, NULL, NULL);
+		//}
 
 		
 	}
 	void PixInsightASCOMCameraDriver::StopExposure()
 	{
-		if(theCameraPtr->Connected)
-			theCameraPtr->StopExposure();
+		//if(theCameraPtr->Connected)
+		//	theCameraPtr->StopExposure();
 	}
 
 

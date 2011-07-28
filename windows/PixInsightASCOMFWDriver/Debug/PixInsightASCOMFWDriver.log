@@ -1,26 +1,19 @@
-﻿Build started 7/24/2011 5:51:05 PM.
-     1>Project "C:\PixInsightASCOMCameraDriver\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"G:\PCL-SDK/include" /I..\.. /IC:\ImageAcquisition /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D __PCL_WINDOWS /D _DEBUG /D _DEBUG /D _ITERATOR_DEBUG_LEVEL=0 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DllMain.cpp
-         DllMain.cpp
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.dll) does not match the Linker's OutputFile property value (G:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(PixInsightASCOMFWDriver) does not match the Linker's OutputFile property value (PixInsightASCOMFWDriver-pxi). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-       Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll" /NOLOGO /LIBPATH:"G:\PCL-SDK\lib\windows\x86\vc10" "PCL-pxi.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\PixInsightASCOMFWDriver.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.lib" /MACHINE:X86 /DLL Debug\DllMain.obj
-         Debug\PixInsightASCOMFWDriver.obj
-         LINK : G:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll not found or not built by the last incremental link; performing full link
-            Creating library C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.lib and object C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.exp
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-         PixInsightASCOMFWDriver.vcxproj -> C:\PixInsightASCOMCameraDriver\windows\vc9\Debug\PixInsightASCOMFWDriver.dll
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"G:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll;#2" /manifest Debug\PixInsightASCOMFWDriver.dll.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild".
-         Touching "Debug\PixInsightASCOMFWDriver.lastbuildstate".
-     1>Done Building Project "C:\PixInsightASCOMCameraDriver\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" (build target(s)).
+﻿Build started 7/27/2011 3:19:32 PM.
+Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" on node 2 (build target(s)).
+InitializeBuildStatus:
+  Creating "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  All outputs are up-to-date.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\PixInsightASCOMDrivers\windows\vc9\Debug\PixInsightASCOMFWDriver.dll) does not match the Linker's OutputFile property value (c:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(PixInsightASCOMFWDriver) does not match the Linker's OutputFile property value (PixInsightASCOMFWDriver-pxi). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+Link:
+  All outputs are up-to-date.
+  PixInsightASCOMFWDriver.vcxproj -> C:\PixInsightASCOMDrivers\windows\vc9\Debug\PixInsightASCOMFWDriver.dll
+FinalizeBuildStatus:
+  Deleting file "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild".
+  Touching "Debug\PixInsightASCOMFWDriver.lastbuildstate".
+Done Building Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.67
+Time Elapsed 00:00:00.10

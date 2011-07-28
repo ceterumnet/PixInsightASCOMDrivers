@@ -50,7 +50,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>PCL-pxi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>G:\PCL-SDK\lib\windows\x86\vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(PCLLIBDIR32)/vc10;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(PCLBINDIR32)\PixInsightASCOMFWDriver-pxi.dll</OutputFile>
     </Link>
   </ItemDefinitionGroup>

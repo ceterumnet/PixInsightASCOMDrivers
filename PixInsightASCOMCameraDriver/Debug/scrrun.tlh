@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (b23ea2dd).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (1a0a8873).
 //
-// c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\scrrun.tlh
+// c:\pixinsightascomdrivers\pixinsightascomcameradriver\debug\scrrun.tlh
 //
 // C++ source equivalent of Win32 type library C:\\Windows\\System32\\ScrRun.dll
-// compiler-generated file created 07/25/11 at 22:00:43 - DO NOT EDIT!
+// compiler-generated file created 07/27/11 at 09:29:26 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -988,6 +988,6 @@ IFileCollection : IDispatch
 // Wrapper method implementations
 //
 
-#include "c:\pixinsightascomcameradriver\pixinsightascomcameradriver\debug\scrrun.tli"
+#include "c:\pixinsightascomdrivers\pixinsightascomcameradriver\debug\scrrun.tli"
 
 #pragma pack(pop)

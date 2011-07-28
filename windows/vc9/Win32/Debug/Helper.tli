@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (716254ae).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (ee6534fd).
 //
-// c:\pixinsightascomcameradriver\windows\vc9\win32\debug\Helper.tli
+// c:\pixinsightascomdrivers\windows\vc9\win32\debug\Helper.tli
 //
 // Wrapper implementations for Win32 type library DriverHelper.Chooser
-// compiler-generated file created 07/23/11 at 18:53:53 - DO NOT EDIT!
+// compiler-generated file created 07/27/11 at 07:58:11 - DO NOT EDIT!
 
 #pragma once
 
