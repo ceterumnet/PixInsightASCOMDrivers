@@ -1,4 +1,4 @@
-﻿Build started 7/27/2011 3:19:32 PM.
+﻿Build started 7/29/2011 7:27:23 PM.
 Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" on node 2 (build target(s)).
 InitializeBuildStatus:
   Creating "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -16,4 +16,4 @@ Done Building Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:00.03

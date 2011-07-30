@@ -1,10 +1,11 @@
-﻿Build started 7/27/2011 3:19:28 PM.
+﻿Build started 7/29/2011 7:27:21 PM.
 Project "C:\PixInsightASCOMDrivers\PixInsightASCOMCameraDriver\PixInsightASCOMCameraDriver.vcxproj" on node 2 (build target(s)).
 InitializeBuildStatus:
   Touching "Debug\PixInsightASCOMCameraDriver.unsuccessfulbuild".
 ClCompile:
   c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"c:\PCL-SDK\include" /I..\.. /IC:\ImageAcquisition /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D __PCL_WINDOWS /D _DEBUG /D _DEBUG /D _ITERATOR_DEBUG_LEVEL=0 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PixInsightASCOMCameraDriver.cpp
   PixInsightASCOMCameraDriver.cpp
+c:\pixinsightascomdrivers\pixinsightascomcameradriver\pixinsightascomcameradriver.cpp(291): warning C4800: 'VARIANT_BOOL' : forcing value to bool 'true' or 'false' (performance warning)
 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\PixInsightASCOMDrivers\windows\vc9\Debug\PixInsightASCOMCameraDriver.dll) does not match the Linker's OutputFile property value (c:\PixInsight32\bin\PixInsightASCOMCameraDriver2-pxi.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(PixInsightASCOMCameraDriver) does not match the Linker's OutputFile property value (PixInsightASCOMCameraDriver2-pxi). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
 Link:
@@ -24,4 +25,4 @@ Done Building Project "C:\PixInsightASCOMDrivers\PixInsightASCOMCameraDriver\Pix
 
 Build succeeded.
 
-Time Elapsed 00:00:03.59
+Time Elapsed 00:00:02.31
