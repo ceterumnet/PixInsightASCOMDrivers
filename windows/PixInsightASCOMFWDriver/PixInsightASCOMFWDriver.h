@@ -1,6 +1,7 @@
 #include <IPixInsightFilterWheel.h>
 #include "stdafx.h"
 #include <atlsafe.h>
+#include "XYDispDriver.h"
 #pragma once
 
 #import "c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
@@ -45,7 +46,7 @@ namespace pcl
 		void (*theLogger)(String);
 		int ConnectFW();
 		int DisconnectFW();
-		IFilterWheelPtr theFWPtr;
+		XYDispDriver theFWPtr2;
 		uint16 ASCOMDataToPi( long );
 		
 	};

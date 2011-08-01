@@ -1,40 +1,36 @@
 #include "PixInsightASCOMFWDriver.h"
 
-#define ASCOM_WRAP(PROPERTY) if(theFWPtr->Connected)\
-								return theFWPtr->PROPERTY;\
-							 return -1;
 
-#define ASCOM_WRAP_BOOL(PROPERTY) if(theFWPtr->Connected)\
-								  {\
-									if(theFWPtr->PROPERTY == VARIANT_TRUE)\
-										return true;\
-									}\
-								  return false;
+#define ASCOM_WRAP_BOOL(PROPERTY) 		if( this->Connected() )\
+										{\
+											if( theFWPtr2.GetProperty(PROPERTY)->boolVal == VARIANT_TRUE)\
+												return true;\
+										}\
+										return false;\
 
 namespace pcl
 {
 
 	PixInsightASCOMFWDriver::PixInsightASCOMFWDriver()
 	{
-		theFWPtr = NULL;
 		CoInitialize(NULL);
-		C = NULL;
+		_ChooserPtr C = NULL;
 		
 		C.CreateInstance("DriverHelper.Chooser");
 		C->DeviceTypeV = "FilterWheel";
+		
 		drvrId = C->Choose("");
 		
 		if(C != NULL)
 		{
 			C.Release();			
-			theFWPtr.CreateInstance((LPCSTR)drvrId);
+			theFWPtr2.CreateObject(drvrId);
 		}
 	}
 
 	void PixInsightASCOMFWDriver::Dispose()
 	{
-		if( theFWPtr )
-			theFWPtr.Release();
+		theFWPtr2.Clear();
 	}
 
 	void PixInsightASCOMFWDriver::SetLogger(void(*_theLogger)(String))
@@ -45,43 +41,35 @@ namespace pcl
 	
 	bool PixInsightASCOMFWDriver::Connected()
 	{
-		ASCOM_WRAP_BOOL(Connected);
+		ASCOM_WRAP_BOOL("Connected");
 	}
 
 	int PixInsightASCOMFWDriver::ConnectFW()
 	{
-		if(theFWPtr != NULL)
-		{
-			theFWPtr->Connected = 1;
-			return 1;
-		}
-		return 0;
+		return theFWPtr2.SetProperty( "Connected", true );
 	}
 
 	int PixInsightASCOMFWDriver::DisconnectFW()
 	{
-		if(theFWPtr->Connected) {
-			theFWPtr->Connected = false;
-			return 1;
-		}			
-		return 0;
+		return theFWPtr2.SetProperty( "Connected", false );
 	}
 
 	int PixInsightASCOMFWDriver::SetConnected(bool connectFW)
 	{
-		if(connectFW == true && theFWPtr == NULL)
-			return PixInsightASCOMFWDriver::ConnectFW();
-		if(connectFW == true && theFWPtr->Connected == false)
-			return PixInsightASCOMFWDriver::ConnectFW();
-		else if(connectFW == true && theFWPtr->Connected == VARIANT_TRUE)
-			return 1;
-		else if(connectFW == false && theFWPtr->Connected == VARIANT_TRUE)
-			return PixInsightASCOMFWDriver::DisconnectFW();
+		if( connectFW == true)
+		{
+			if( this->Connected() )
+				return 1;
+			return this->ConnectFW();
+		}
 		else
-			return 0;
+		{
+			if( this->Connected() )
+				return this->DisconnectFW();
+			return 1;
+		}
 	}
 
-	
 	String PixInsightASCOMFWDriver::Description()
 	{
 		return String("ASCOM FW Driver");
@@ -89,24 +77,25 @@ namespace pcl
 
 	void PixInsightASCOMFWDriver::SetupDialog()
 	{
-		if(theFWPtr->Connected)
-			theFWPtr->SetupDialog();
+		if(this->Connected())
+			theFWPtr2.InvokeMethod("SetupDialog");
 	}
 	
 	short PixInsightASCOMFWDriver::Position()
 	{
-		ASCOM_WRAP(Position);
+		if( this->Connected() )
+			return theFWPtr2.GetProperty("Position")->iVal;
+	    return -2;
 	}
 
 	int PixInsightASCOMFWDriver::SetPosition(uint8 p)
 	{
-		theFWPtr->Position = p;
-		return p;
+		return theFWPtr2.SetProperty("Position", p);
 	}
 
 	uint8 PixInsightASCOMFWDriver::MaxPosition()
 	{
-		uint8 i = SafeArrayGetElemsize(theFWPtr->Names);
+		uint8 i = SafeArrayGetElemsize(theFWPtr2.GetProperty("Names")->parray);
 		return i;
 	}
 
@@ -117,7 +106,7 @@ namespace pcl
 
 	bool PixInsightASCOMFWDriver::IsMoving()
 	{
-		if( theFWPtr->Position == -1 )
+		if( this->Position() == -1 )
 			return true;
 		return false;
 	}

@@ -70,11 +70,13 @@
   <ItemGroup>
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="PixInsightASCOMFWDriver.cpp" />
+    <ClCompile Include="XYDispDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLLExports.h" />
     <ClInclude Include="PixInsightASCOMFWDriver.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="XYDispDriver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

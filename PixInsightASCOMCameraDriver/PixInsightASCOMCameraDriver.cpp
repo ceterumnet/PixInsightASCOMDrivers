@@ -1,11 +1,12 @@
 #include "PixInsightASCOMCameraDriver.h"
 
-#define ASCOM_WRAP_BOOL(PROPERTY) 		if( theCameraPtr2.GetProperty("Connected")->boolVal == VARIANT_TRUE)\
+#define ASCOM_WRAP_BOOL(PROPERTY) 		if( this->Connected() )\
 										{\
-											if( theCameraPtr2.GetProperty("PROPERTY")->boolVal == VARIANT_TRUE)\
-											return true;\
+											if( theCameraPtr2.GetProperty(PROPERTY)->boolVal == VARIANT_TRUE)\
+												return true;\
 										}\
-										return false;
+										return false;\
+
 
 		
 namespace pcl
@@ -119,22 +120,22 @@ namespace pcl
 
 	bool PixInsightASCOMCameraDriver::CanAbortExposure()
 	{
-		ASCOM_WRAP_BOOL(CanAbortExposure);
+		ASCOM_WRAP_BOOL("CanAbortExposure");
 	}
 
 	bool PixInsightASCOMCameraDriver::CanAsymmetricBin()
 	{
-		ASCOM_WRAP_BOOL(CanAsymmetricBin);
+		ASCOM_WRAP_BOOL("CanAsymmetricBin");
 	}
 
 	bool PixInsightASCOMCameraDriver::CanGetCoolerPower()
 	{
-		ASCOM_WRAP_BOOL(CanGetCoolerPower);
+		ASCOM_WRAP_BOOL("CanGetCoolerPower");
 	}
 
 	bool PixInsightASCOMCameraDriver::CanPulseGuide()
 	{
-		ASCOM_WRAP_BOOL(CanPulseGuide);
+		ASCOM_WRAP_BOOL("CanPulseGuide");
 	}
 
 	bool PixInsightASCOMCameraDriver::CanSetCCDTemperature()
@@ -149,7 +150,7 @@ namespace pcl
 
 	bool PixInsightASCOMCameraDriver::CanStopExposure()
 	{
-		ASCOM_WRAP_BOOL(CanStopExposure);
+		ASCOM_WRAP_BOOL("CanStopExposure");
 	}
 
 	double PixInsightASCOMCameraDriver::CCDTemperature()
@@ -197,7 +198,7 @@ namespace pcl
 
 	bool PixInsightASCOMCameraDriver::CoolerOn()
 	{
-		ASCOM_WRAP_BOOL(CoolerOn);		
+		ASCOM_WRAP_BOOL("CoolerOn");		
 	}
 
 	int PixInsightASCOMCameraDriver::SetCoolerOn(bool coolerOn)
@@ -242,7 +243,7 @@ namespace pcl
 
 	bool PixInsightASCOMCameraDriver::HasShutter()
 	{
-		ASCOM_WRAP_BOOL(HasShutter);
+		ASCOM_WRAP_BOOL("HasShutter");
 	}
 
 	double PixInsightASCOMCameraDriver::HeatSinkTemperature()
@@ -286,15 +287,12 @@ namespace pcl
 	
 	bool PixInsightASCOMCameraDriver::ImageReady()
 	{
-		//ASCOM_WRAP_BOOL(ImageReady);
-		if(this->Connected())
-			return theCameraPtr2.GetProperty("ImageReady")->boolVal;
-		return false;
+		ASCOM_WRAP_BOOL("ImageReady");
 	}
 
 	bool PixInsightASCOMCameraDriver::IsPulseGuiding()
 	{
-		ASCOM_WRAP_BOOL(IsPulseGuiding);
+		ASCOM_WRAP_BOOL("IsPulseGuiding");
 	}
 
 	String PixInsightASCOMCameraDriver::LastError()
