@@ -8,6 +8,7 @@
 										}\
 										return false;\
 
+
 namespace pcl
 {
 
@@ -41,7 +42,10 @@ namespace pcl
 	
 	bool PixInsightASCOMFWDriver::Connected()
 	{
-		ASCOM_WRAP_BOOL("Connected");
+		VARIANT *res = theFWPtr2.GetProperty("Connected");
+		if( res->boolVal == VARIANT_TRUE )
+			return true;
+		return false;
 	}
 
 	int PixInsightASCOMFWDriver::ConnectFW()

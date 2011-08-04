@@ -1,15 +1,10 @@
-﻿Build started 7/31/2011 12:53:33 PM.
+﻿Build started 8/4/2011 1:29:29 PM.
 Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver\PixInsightASCOMFWDriver.vcxproj" on node 2 (build target(s)).
 InitializeBuildStatus:
   Creating "Debug\PixInsightASCOMFWDriver.unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"c:\PCL-SDK\include" /I..\.. /IC:\ImageAcquisition /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D __PCL_WINDOWS /D _DEBUG /D _DEBUG /D _ITERATOR_DEBUG_LEVEL=0 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DllMain.cpp PixInsightASCOMFWDriver.cpp XYDispDriver.cpp
-  XYDispDriver.cpp
+  c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"c:\PCL-SDK\include" /I..\.. /IC:\ImageAcquisition /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D __PCL_WINDOWS /D _DEBUG /D _DEBUG /D _ITERATOR_DEBUG_LEVEL=0 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PixInsightASCOMFWDriver.cpp
   PixInsightASCOMFWDriver.cpp
-  Generating Code...
-  Compiling...
-  DllMain.cpp
-  Generating Code...
 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\PixInsightASCOMDrivers\windows\vc9\Debug\PixInsightASCOMFWDriver.dll) does not match the Linker's OutputFile property value (c:\PixInsight32\bin\PixInsightASCOMFWDriver-pxi.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
 C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(PixInsightASCOMFWDriver) does not match the Linker's OutputFile property value (PixInsightASCOMFWDriver-pxi). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
 Link:
@@ -29,4 +24,4 @@ Done Building Project "C:\PixInsightASCOMDrivers\windows\PixInsightASCOMFWDriver
 
 Build succeeded.
 
-Time Elapsed 00:00:05.33
+Time Elapsed 00:00:03.09
