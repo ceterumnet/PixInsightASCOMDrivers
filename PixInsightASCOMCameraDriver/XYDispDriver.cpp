@@ -906,8 +906,8 @@ HRESULT XYDispDriver::InvokeMethodV(int nIndex, va_list argList)
 	// {
 		// m_pDispInfo[nIndex].m_pOutput->vt = m_pDispInfo[nIndex].m_vtOutputType;
 	// }
-
-	delete m_pExceptInfo;
+	if(m_pExceptInfo)
+		delete m_pExceptInfo;
 	m_pExceptInfo = NULL;
 	return m_hRet;
 }

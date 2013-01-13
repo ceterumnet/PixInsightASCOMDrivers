@@ -32,7 +32,9 @@ namespace pcl
 
 	void PixInsightASCOMCameraDriver::Dispose()
 	{
-		theCameraPtr2.Clear();
+		// I'm thinking that this is getting "double disposed because we have a stack initialized variable
+		// with theCameraPtr2.
+		// theCameraPtr2.Clear();
 	}
 
 	void PixInsightASCOMCameraDriver::SetLogger(void(*_theLogger)(String))
@@ -54,7 +56,7 @@ namespace pcl
 	{
 		if(this->Connected())
 		{
-			theCameraPtr2.GetProperty("BinY")->iVal;
+			return theCameraPtr2.GetProperty("BinY")->iVal;
 		}
 		return -1;
 	}
@@ -156,7 +158,7 @@ namespace pcl
 	double PixInsightASCOMCameraDriver::CCDTemperature()
 	{
 		if(this->Connected())
-			theCameraPtr2.GetProperty("CCDTemperature")->dblVal;
+			return theCameraPtr2.GetProperty("CCDTemperature")->dblVal;
 		return -1;
 	}
 
