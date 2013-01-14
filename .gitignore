@@ -1,3 +1,6 @@
 **.log
 **.tlog
 **/*/ipch
+**/*/Debug
+*/Debug
+windows/vc9/Win32

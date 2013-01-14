@@ -39,7 +39,7 @@ XYDispInfo::~XYDispInfo()
 }
 
 XYDispInfo& XYDispInfo::operator=(const XYDispInfo& src)
-{
+{ 
 	m_dispID = src.m_dispID;
 	if(m_bstrName) ::SysFreeString(m_bstrName);
 	if(src.m_bstrName) m_bstrName = ::SysAllocString(src.m_bstrName);
@@ -906,8 +906,8 @@ HRESULT XYDispDriver::InvokeMethodV(int nIndex, va_list argList)
 	// {
 		// m_pDispInfo[nIndex].m_pOutput->vt = m_pDispInfo[nIndex].m_vtOutputType;
 	// }
-	if(m_pExceptInfo)
-		delete m_pExceptInfo;
+	//if(m_pExceptInfo)
+	//	delete m_pExceptInfo;
 	m_pExceptInfo = NULL;
 	return m_hRet;
 }

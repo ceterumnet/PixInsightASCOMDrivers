@@ -34,8 +34,10 @@ XYDispInfo::~XYDispInfo()
 	{
 		::VariantClear(m_pOutput);
 	}
-	delete m_pOutput;
-	delete []m_pParamTypes;
+	if (m_pOutput)
+		delete m_pOutput;
+	if (m_pParamTypes)
+		delete []m_pParamTypes;
 }
 
 XYDispInfo& XYDispInfo::operator=(const XYDispInfo& src)
@@ -740,7 +742,7 @@ HRESULT XYDispDriver::InvokeMethodV(int nIndex, va_list argList)
 					WCHAR* pData = new WCHAR[strlen(lpsz)+1];
 					CharToWChar((unsigned short*)pData,lpsz);
 					pArg->bstrVal = ::SysAllocString(pData);
-					delete []pData;
+					if(pData) delete []pData;
 				#endif
 				}
 				break;		
@@ -906,8 +908,10 @@ HRESULT XYDispDriver::InvokeMethodV(int nIndex, va_list argList)
 	// {
 		// m_pDispInfo[nIndex].m_pOutput->vt = m_pDispInfo[nIndex].m_vtOutputType;
 	// }
-	if(m_pExceptInfo)
-		delete m_pExceptInfo;
+	
+	//Temporarily commenting this out since I've gotten some exceptions here.
+	//if(m_pExceptInfo)
+	//delete m_pExceptInfo;
 	m_pExceptInfo = NULL;
 	return m_hRet;
 }
