@@ -459,7 +459,7 @@ namespace pcl
 	void PixInsightASCOMCameraDriver::StartExposure(double duration)
 	{
 		if(this->Connected())
-			theCameraPtr2.InvokeMethod("StartExposure", duration, true);
+			theCameraPtr2.InvokeMethod("StartExposure", duration, VARIANT_TRUE);
 	}
 
 	void PixInsightASCOMCameraDriver::StopExposure()
