@@ -3,7 +3,8 @@
 #include <atlsafe.h>
 #include "XYDispDriver.h"
 #pragma once
-
+// klaus machine:
+//#import "C:\Program Files\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
 #import "c:\Program Files (x86)\Common Files\ASCOM\Interface\AscomMasterInterfaces.tlb"
 #import "C:\\Windows\\System32\\ScrRun.dll" \
 	no_namespace \
@@ -83,9 +84,13 @@ namespace pcl
         virtual void StartExposure(double);
         virtual void StopExposure();
 		virtual double GetSetCCDTemperature();
+		virtual CameraType getCameraType(){return cameraType; }
+		virtual void downloadImageFromCamera(const char*  filePath){}
+		virtual const char* getImageFileName(){return "";}
 	private:
 		_bstr_t  drvrId;
-		
+		CameraType cameraType;
+
 		void (*theLogger)(String);
 		int ConnectCamera( );
 		int DisconnectCamera( );
