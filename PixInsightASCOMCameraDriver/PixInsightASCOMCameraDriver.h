@@ -85,7 +85,7 @@ namespace pcl
         virtual void StopExposure();
 		virtual double GetSetCCDTemperature();
 		virtual CameraType getCameraType(){return cameraType; }
-		virtual void downloadImageFromCamera(const char*  filePath){}
+		virtual bool downloadImageFromCamera(const char*  filePath){return false;}
 		virtual const char* getImageFileName(){return "";}
 	private:
 		_bstr_t  drvrId;
