@@ -12,7 +12,7 @@
 namespace pcl
 {
 
-	PixInsightASCOMCameraDriver::PixInsightASCOMCameraDriver()
+	PixInsightASCOMCameraDriver::PixInsightASCOMCameraDriver():cameraType(TypeCCD)
 	{
 		
 		CoInitialize(NULL);
