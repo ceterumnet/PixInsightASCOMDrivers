@@ -25,8 +25,17 @@ namespace pcl
 		
 		if(C != NULL)
 		{
-			C.Release();			
+			C.Release();
 			theCameraPtr2.CreateObject(drvrId);
+
+			theCameraPtr2.SetProperty( "Connected", true );
+
+			if(theCameraPtr2.GetLastError())
+			{				
+				throw Error("Couldn't connect to camera.  Make sure device is plugged in and the drivers are installed correctly. ");
+			}
+			theCameraPtr2.SetProperty( "Connected", false );
+			
 		}
 	}
 
@@ -34,7 +43,7 @@ namespace pcl
 	{
 		// I'm thinking that this is getting "double disposed because we have a stack initialized variable
 		// with theCameraPtr2.
-		theCameraPtr2.Clear();
+		//theCameraPtr2.Clear();
 	}
 
 	void PixInsightASCOMCameraDriver::SetLogger(void(*_theLogger)(String))
@@ -172,9 +181,15 @@ namespace pcl
 		return false;
 	}
 
-	int PixInsightASCOMCameraDriver::ConnectCamera(  )
+	int PixInsightASCOMCameraDriver::ConnectCamera()
 	{
-		return theCameraPtr2.SetProperty( "Connected", true );
+		try {
+			if(theCameraPtr2.SetProperty( "Connected", true ))
+				return 1;		
+			return -1;
+		} catch(Exception e) {
+			return -1;
+		}
 	}
 
 	int PixInsightASCOMCameraDriver::DisconnectCamera()
