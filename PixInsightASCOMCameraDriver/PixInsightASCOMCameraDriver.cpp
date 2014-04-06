@@ -118,8 +118,9 @@ namespace pcl
 
 	long PixInsightASCOMCameraDriver::CameraXSize()
 	{
-		if(this->Connected())
+		if(this->Connected()) {
 			return theCameraPtr2.GetProperty("CameraXSize")->lVal;
+		}
 		return -1;
 		
 	}
@@ -286,20 +287,28 @@ namespace pcl
 		
 		uint32 *imageData;
 		SafeArrayAccessData(theCameraPtr2.GetProperty("ImageArray")->parray, (void **)&imageData);
+
 		int dims = SafeArrayGetDim(theCameraPtr2.GetProperty("ImageArray")->parray);
+
 		long ubound1, ubound2, lbound1, lbound2;
+
 		SafeArrayGetUBound(theCameraPtr2.GetProperty("ImageArray")->parray,1,&ubound1);
 		SafeArrayGetUBound(theCameraPtr2.GetProperty("ImageArray")->parray,2,&ubound2);
 		SafeArrayGetLBound(theCameraPtr2.GetProperty("ImageArray")->parray,1,&lbound1);
 		SafeArrayGetLBound(theCameraPtr2.GetProperty("ImageArray")->parray,2,&lbound2);
 
 		int sizeX = ubound1 - lbound1;
-		int sizeY = ubound2 - lbound2;	
+		int sizeY = ubound2 - lbound2;
 		
 		uint16 *piImageData = **theImage;
-
+		
 		for( size_type i = 0, N = theImage->NumberOfPixels(); i < N; ++i)
 			*piImageData++ = *imageData++;
+			
+		int startX = theCameraPtr2.GetProperty("StartX")->intVal;
+		int startY = theCameraPtr2.GetProperty("StartY")->intVal;
+		int numX = theCameraPtr2.GetProperty("NumX")->intVal;
+		int numY = theCameraPtr2.GetProperty("NumY")->intVal;
 
 		SafeArrayUnaccessData( theCameraPtr2.GetProperty("ImageArray")->parray );
 	}
@@ -412,28 +421,28 @@ namespace pcl
 		return -1;
 	}
 
-	double PixInsightASCOMCameraDriver::StartX()
+	long PixInsightASCOMCameraDriver::StartX()
 	{
 		if(this->Connected())
-			return theCameraPtr2.GetProperty("StartX")->dblVal;
+			return theCameraPtr2.GetProperty("StartX")->iVal;
 		return -1;
 	}
 
-	int PixInsightASCOMCameraDriver::SetStartX(double setX)
+	int PixInsightASCOMCameraDriver::SetStartX(long setX)
 	{
 		if(this->Connected())
 			return theCameraPtr2.SetProperty("StartX", setX);
 		return -1;	
 	}
 	
-	double PixInsightASCOMCameraDriver::StartY()
+	long PixInsightASCOMCameraDriver::StartY()
 	{
 		if(this->Connected())
-			return theCameraPtr2.GetProperty("StartY")->dblVal;
+			return theCameraPtr2.GetProperty("StartY")->iVal;
 		return -1;
 	}
 
-	int PixInsightASCOMCameraDriver::SetStartY(double setY)
+	int PixInsightASCOMCameraDriver::SetStartY(long setY)
 	{
 		if(this->Connected())
 			return theCameraPtr2.SetProperty("StartY", setY);

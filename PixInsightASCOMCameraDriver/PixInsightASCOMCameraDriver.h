@@ -74,10 +74,10 @@ namespace pcl
         virtual double PixelSizeX();
         virtual double PixelSizeY();
         virtual int SetCCDTemperature(double);
-        virtual double StartX();
-        virtual int SetStartX(double);
-        virtual double StartY();
-        virtual int SetStartY(double);
+        virtual long StartX();
+        virtual int SetStartX(long);
+        virtual long StartY();
+        virtual int SetStartY(long);
         virtual int AbortExposure();
         virtual int PulseGuide(GuideDirection, long);
         virtual void SetupDialog();
